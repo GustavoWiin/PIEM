@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VT95GBZV1V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-VT95GBZV1V');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
+    			<!-- Twitter Meta tags -->
+			<meta name="twitter:card" content="summary_large_image">
+						<meta name="twitter:title" content="Podcast Unesp">
+			<meta name="twitter:description" content="Lançado em outubro de 2011 pela Assessoria de Comunicação e Imprensa (ACI) da Unesp, o Podcast Unesp tem como objetivo divulgar o universo acadêmico à sociedade. O serviço disponibiliza podcasts (arquivos de áudio) com pesquisas e a opinião de especialistas da Universidade sobre os mais diversos assuntos em todas as grandes áreas do conhecimento. Todo o conteúdo do Podcast Unesp é gratuito e pode ser reproduzido, desde que com os devidos créditos.">
+
+			<!-- Facebook Meta tags -->
+			<meta property="og:title" content="Podcast Unesp">
+			<meta property="og:description" content="Lançado em outubro de 2011 pela Assessoria de Comunicação e Imprensa (ACI) da Unesp, o Podcast Unesp tem como objetivo divulgar o universo acadêmico à sociedade. O serviço disponibiliza podcasts (arquivos de áudio) com pesquisas e a opinião de especialistas da Universidade sobre os mais diversos assuntos em todas as grandes áreas do conhecimento. Todo o conteúdo do Podcast Unesp é gratuito e pode ser reproduzido, desde que com os devidos créditos.">
+
+			<!-- Images -->
+			<meta property="og:image" content="https://podcast.unesp.br/admin/dbo/upload/dbo-media-manager/thumbs/medium-logo-podcast-open-graph.png">
+			<meta property="image" content="https://podcast.unesp.br/admin/dbo/upload/dbo-media-manager/thumbs/medium-logo-podcast-open-graph.png">
+			<meta property="og:image:width" content="1200"/>
+			<meta property="og:image:height" content="680"/>
+			<meta name="robots" content="max-image-preview:large">
+
+			<link rel="image_src" href="https://podcast.unesp.br/admin/dbo/upload/dbo-media-manager/thumbs/medium-logo-podcast-open-graph.png" />
+			<meta property="og:url" content="https://podcast.unesp.br">
+			<link rel="canonical" href="https://podcast.unesp.br">
+
+			
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://podcast.unesp.br/css/app.min.css">
+
+    <title>Podcast Unesp</title>
+
+    <!-- DBO IMPORTED JS -->
+<script defer src="https://podcast.unesp.br/admin/dbo/../js/peixelaranja.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script><!-- DBO_IMPORTED_JS (END) -->
+
+    <!-- Able Player -->
+    <script src="//cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    <script src="https://podcast.unesp.br/js/ableplayer/build/ableplayer.min.js" defer></script>
+    <link rel="stylesheet" href="https://podcast.unesp.br/js/ableplayer/styles/ableplayer-podcast-unesp.css">
+
+    <!-- Scripts do site -->
+    <script src="https://podcast.unesp.br/js/app.js"></script>
+
+</head>
+
+<body data-pagina-atual="1">
+
+    <div id="main-header-site" class="mb-4">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow py-3">
+            <a class="navbar-brand" href="https://podcast.unesp.br">
+                <img src="https://podcast.unesp.br/images/logo.png" alt="Logotipo do Podcast Unesp" id="main-logo-site">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav-site" aria-controls="main-nav-site" aria-expanded="false" aria-label="Abrir a navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse text-center text-lg-left" id="main-nav-site">
+                <ul class="navbar-nav mx-auto text-uppercase">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="https://podcast.unesp.br">Ouça <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link nowrap" href="https://podcast.unesp.br/feed ">RSS / EMBED</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="https://podcast.unesp.br/sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="https://podcast.unesp.br/contato">Contato</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0 flex-nowrap" action="https://podcast.unesp.br/busca" method="get">
+                    <input class="form-control mr-sm-2 mb-0" type="search" required placeholder="Digite sua busca..." aria-label="Busca" name="term" value="" maxlength="50">
+                    <button class="btn btn-outline-primary my-2 my-sm-0 text-uppercase" type="submit"><i class="fa fa-search"></i> <span class="ml-1 d-none d-xxl-inline-block">Buscar</span></button>
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb text-uppercase font-14 px-0 bg-transparent">
+
+                    
+            <li class="breadcrumb-item"><a href="https://podcast.unesp.br"><i class="fa fa-home mr-2"></i>Home</a></li>
+
+        
+    </ol>
+</nav>    </div>
+<main>
+
+    <section id="ultimos-podcasts" class="large-podcast-cards">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-12">
+                    <h1 class="pretty bullets text-primary">Últimos podcasts</h1>
+
+                    
+                    
+                        <div class="row row-cols-1 row-cols-md-2">
+
+                            
+                                <div class="col mb-5">
+
+                                    <div class="podcast-card  podcast-card-stacked" style="">
+    <a href="https://podcast.unesp.br/18352/osasco-recebe-inscricoes-para-146-vagas-em-cargos-de-todos-os-niveis">
+        <div class="row align-items-center">
+            <div class="col-podcast-card-left">
+                <img src="https://podcast.unesp.br/admin/dbo/upload/images/medium-1669041772-0762.JPG" alt="Imagem de capa do Podcast" class="d-block rounded-top-left rounded-bottom-right aspect-ratio-16x9 object-fit-cover podcast-card-cover">
+            </div>
+            <div class="col-podcast-card-right">
+                <div class="info">
+                    <div class="canal"><strong>Vunesp Informa</strong></div>
+                    <h2 class="titulo">Osasco recebe inscrições para 146 vagas em cargos de todos os níveis</h2>
+                    <div class="duracao">
+                        <time class="text-muted">23 de Setembro de 2025</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+                                </div>
+
+                            
+                                <div class="col mb-5">
+
+                                    <div class="podcast-card  podcast-card-stacked" style="">
+    <a href="https://podcast.unesp.br/18351/formada-pela-unesp-gerente-de-pesquisa-e-desenvolvimento-da-jbt-food-tech-comenta-seus-desafios-e-ascensao-no-setor-dos-citrus">
+        <div class="row align-items-center">
+            <div class="col-podcast-card-left">
+                <img src="https://podcast.unesp.br/admin/dbo/upload/images/medium-1758227428-0068-masked-68cc6c3ff1fc2.jpg" alt="Imagem de capa do Podcast" class="d-block rounded-top-left rounded-bottom-right aspect-ratio-16x9 object-fit-cover podcast-card-cover">
+            </div>
+            <div class="col-podcast-card-right">
+                <div class="info">
+                    <div class="canal"><strong>Universo Profissional</strong></div>
+                    <h2 class="titulo">Formada pela Unesp, gerente de pesquisa e desenvolvimento da JBT Food Tech comenta seus desafios e ascensão no setor dos citrus</h2>
+                    <div class="duracao">
+                        <time class="text-muted">19 de Setembro de 2025</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+                                </div>
+
+                            
+                                <div class="col mb-5">
+
+                                    <div class="podcast-card  podcast-card-stacked" style="">
+    <a href="https://podcast.unesp.br/18347/prato-do-dia-105-televisao-30-no-brasil-com-francisco-machado-filho">
+        <div class="row align-items-center">
+            <div class="col-podcast-card-left">
+                <img src="https://podcast.unesp.br/admin/dbo/upload/images/medium-1669042057-0772.JPG" alt="Imagem de capa do Podcast" class="d-block rounded-top-left rounded-bottom-right aspect-ratio-16x9 object-fit-cover podcast-card-cover">
+            </div>
+            <div class="col-podcast-card-right">
+                <div class="info">
+                    <div class="canal"><strong>Prato do Dia</strong></div>
+                    <h2 class="titulo">[Prato do Dia #105] Televisão 3.0 no Brasil, com Francisco Machado Filho</h2>
+                    <div class="duracao">
+                        <time class="text-muted">18 de Setembro de 2025</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+                                </div>
+
+                            
+                                <div class="col mb-5">
+
+                                    <div class="podcast-card  podcast-card-stacked" style="">
+    <a href="https://podcast.unesp.br/18350/pesquisador-da-unesp-comenta-como-devem-ser-os-investimentos-para-um-projeto-de-irrigacao-adequado">
+        <div class="row align-items-center">
+            <div class="col-podcast-card-left">
+                <img src="https://podcast.unesp.br/admin/dbo/upload/images/medium-1669041855-0831.JPG" alt="Imagem de capa do Podcast" class="d-block rounded-top-left rounded-bottom-right aspect-ratio-16x9 object-fit-cover podcast-card-cover">
+            </div>
+            <div class="col-podcast-card-right">
+                <div class="info">
+                    <div class="canal"><strong>Pod Irrigar</strong></div>
+                    <h2 class="titulo">Pesquisador da Unesp comenta como devem ser os investimentos para um projeto de irrigação adequado</h2>
+                    <div class="duracao">
+                        <time class="text-muted">18 de Setembro de 2025</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+                                </div>
+
+                            
+                        </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    
+        <div id="destaques" class="py-5 mb-5" style="background-color: #eee;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <h1 class="pretty bullets text-primary">Destaques</h1>
+
+                        <div class="row row-cols-1 row-cols-md-3">
+
+                            
+                                <div class="col mb-5">
+
+                                    <div class="podcast-card  podcast-card-stacked" style="">
+    <a href="https://podcast.unesp.br/18351/formada-pela-unesp-gerente-de-pesquisa-e-desenvolvimento-da-jbt-food-tech-comenta-seus-desafios-e-ascensao-no-setor-dos-citrus">
+        <div class="row align-items-center">
+            <div class="col-podcast-card-left">
+                <img src="https://podcast.unesp.br/admin/dbo/upload/images/medium-1758227428-0068-masked-68cc6c3ff1fc2.jpg" alt="Imagem de capa do Podcast" class="d-block rounded-top-left rounded-bottom-right aspect-ratio-16x9 object-fit-cover podcast-card-cover">
+            </div>
+            <div class="col-podcast-card-right">
+                <div class="info">
+                    <div class="canal"><strong>Universo Profissional</strong></div>
+                    <h2 class="titulo">Formada pela Unesp, gerente de pesquisa e desenvolvimento da JBT Food Tech comenta seus desafios e ascensão no setor dos citrus</h2>
+                    <div class="duracao">
+                        <time class="text-muted">19 de Setembro de 2025</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+                                </div>
+
+                            
+                                <div class="col mb-5">
+
+                                    <div class="podcast-card  podcast-card-stacked" style="">
+    <a href="https://podcast.unesp.br/18347/prato-do-dia-105-televisao-30-no-brasil-com-francisco-machado-filho">
+        <div class="row align-items-center">
+            <div class="col-podcast-card-left">
+                <img src="https://podcast.unesp.br/admin/dbo/upload/images/medium-1669042057-0772.JPG" alt="Imagem de capa do Podcast" class="d-block rounded-top-left rounded-bottom-right aspect-ratio-16x9 object-fit-cover podcast-card-cover">
+            </div>
+            <div class="col-podcast-card-right">
+                <div class="info">
+                    <div class="canal"><strong>Prato do Dia</strong></div>
+                    <h2 class="titulo">[Prato do Dia #105] Televisão 3.0 no Brasil, com Francisco Machado Filho</h2>
+                    <div class="duracao">
+                        <time class="text-muted">18 de Setembro de 2025</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+                                </div>
+
+                            
+                                <div class="col mb-5">
+
+                                    <div class="podcast-card  podcast-card-stacked" style="">
+    <a href="https://podcast.unesp.br/18343/big-chico-30-anos-de-blues-dentro-e-fora-do-brasil">
+        <div class="row align-items-center">
+            <div class="col-podcast-card-left">
+                <img src="https://podcast.unesp.br/admin/dbo/upload/images/medium-1757680656-0648-masked-68c414389ede6.jpg" alt="Imagem de capa do Podcast" class="d-block rounded-top-left rounded-bottom-right aspect-ratio-16x9 object-fit-cover podcast-card-cover">
+            </div>
+            <div class="col-podcast-card-right">
+                <div class="info">
+                    <div class="canal"><strong>Pod MPB</strong></div>
+                    <h2 class="titulo">Big Chico: 30 anos de Blues dentro e fora do Brasil</h2>
+                    <div class="duracao">
+                        <time class="text-muted">12 de Setembro de 2025</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+                                </div>
+
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+    <!-- Seção mais podcasts -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-8 pr-lg-5">
+
+                <section id="mais-podcasts">
+
+                    <div class="row">
+                        <div class="col-12 mb-5">
+                            <h1 class="pretty bullets text-primary">Mais podcasts</h1>
+                            <select class="custom-select" onchange="document.location.href = this.value;">
+    <option value="">Canal</option>
+            <option value="https://podcast.unesp.br/canal/1/radio-release">Rádio Release</option>
+            <option value="https://podcast.unesp.br/canal/4/vunesp-informa">Vunesp Informa</option>
+            <option value="https://podcast.unesp.br/canal/5/pod-viver-bem">Pod Viver Bem</option>
+            <option value="https://podcast.unesp.br/canal/12/pod-tempo">Pod Tempo</option>
+            <option value="https://podcast.unesp.br/canal/13/pod-irrigar">Pod Irrigar</option>
+            <option value="https://podcast.unesp.br/canal/19/pod-territorial">Pod Territorial</option>
+            <option value="https://podcast.unesp.br/canal/20/pod-acqua">Pod Acqua</option>
+            <option value="https://podcast.unesp.br/canal/21/pod-mundo-e-politica">Pod Mundo e Política</option>
+            <option value="https://podcast.unesp.br/canal/25/pod-esporte">Pod Esporte</option>
+            <option value="https://podcast.unesp.br/canal/26/pod-mpb">Pod MPB</option>
+            <option value="https://podcast.unesp.br/canal/27/pod-ibilce">Pod Ibilce</option>
+            <option value="https://podcast.unesp.br/canal/28/minuto-ciencia">Minuto Ciência</option>
+            <option value="https://podcast.unesp.br/canal/35/pod-inovar">Pod Inovar</option>
+            <option value="https://podcast.unesp.br/canal/38/prato-do-dia">Prato do Dia</option>
+            <option value="https://podcast.unesp.br/canal/39/universo-profissional">Universo Profissional</option>
+    </select>                        </div>
+
+                        
+                        <div class="col-12">
+                            <div id="wrapper-audios">
+
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <div class="podcast-card mb-4 podcast-card-left" style="">
+    <a href="https://podcast.unesp.br/18349/aluno-de-iniciacao-cientifica-da-unesp-em-rio-preto-descreve-estudo-com-linguas-indigenas-do-brasil">
+        <div class="row align-items-center">
+            <div class="col-podcast-card-left">
+                <img src="https://podcast.unesp.br/admin/dbo/upload/images/medium-1669041963-0050.JPG" alt="Imagem de capa do Podcast" class="d-block rounded-top-left rounded-bottom-right aspect-ratio-16x9 object-fit-cover podcast-card-cover">
+            </div>
+            <div class="col-podcast-card-right">
+                <div class="info">
+                    <div class="canal"><strong>Pod Ibilce</strong></div>
+                    <h2 class="titulo">Aluno de Iniciação Científica da Unesp em Rio Preto descreve estudo com línguas indígenas do Brasil</h2>
+                    <div class="duracao">
+                        <time class="text-muted">17 de Setembro de 2025</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+                                
+                                    
+                                    <div class="podcast-card mb-4 podcast-card-left" style="">
+    <a href="https://podcast.unesp.br/18348/especialista-em-gestao-de-recursos-hidricos-da-unesp-faz-panorama-do-consumo-de-agua-nas-inteligencias-artificiais">
+        <div class="row align-items-center">
+            <div class="col-podcast-card-left">
+                <img src="https://podcast.unesp.br/admin/dbo/upload/images/medium-1669041892-0773.JPG" alt="Imagem de capa do Podcast" class="d-block rounded-top-left rounded-bottom-right aspect-ratio-16x9 object-fit-cover podcast-card-cover">
+            </div>
+            <div class="col-podcast-card-right">
+                <div class="info">
+                    <div class="canal"><strong>Pod Acqua</strong></div>
+                    <h2 class="titulo">Especialista em gestão de recursos hídricos da Unesp faz panorama do consumo de água nas inteligências artificiais</h2>
+                    <div class="duracao">
+                        <time class="text-muted">16 de Setembro de 2025</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+                                
+                                    
+                                    <div class="podcast-card mb-4 podcast-card-left" style="">
+    <a href="https://podcast.unesp.br/18346/vestibular-unesp-2026-oferece-reducao-de-75-da-taxa-para-alunos-de-ultimo-ano-do-ensino-medio-publico-paulista">
+        <div class="row align-items-center">
+            <div class="col-podcast-card-left">
+                <img src="https://podcast.unesp.br/admin/dbo/upload/images/medium-1669041772-0762.JPG" alt="Imagem de capa do Podcast" class="d-block rounded-top-left rounded-bottom-right aspect-ratio-16x9 object-fit-cover podcast-card-cover">
+            </div>
+            <div class="col-podcast-card-right">
+                <div class="info">
+                    <div class="canal"><strong>Vunesp Informa</strong></div>
+                    <h2 class="titulo">Vestibular Unesp 2026 oferece redução de 75% da taxa para alunos de último ano do ensino médio público paulista</h2>
+                    <div class="duracao">
+                        <time class="text-muted">15 de Setembro de 2025</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+                                
+                                    
+                                    <div class="podcast-card mb-4 podcast-card-left" style="">
+    <a href="https://podcast.unesp.br/18343/big-chico-30-anos-de-blues-dentro-e-fora-do-brasil">
+        <div class="row align-items-center">
+            <div class="col-podcast-card-left">
+                <img src="https://podcast.unesp.br/admin/dbo/upload/images/medium-1757680656-0648-masked-68c414389ede6.jpg" alt="Imagem de capa do Podcast" class="d-block rounded-top-left rounded-bottom-right aspect-ratio-16x9 object-fit-cover podcast-card-cover">
+            </div>
+            <div class="col-podcast-card-right">
+                <div class="info">
+                    <div class="canal"><strong>Pod MPB</strong></div>
+                    <h2 class="titulo">Big Chico: 30 anos de Blues dentro e fora do Brasil</h2>
+                    <div class="duracao">
+                        <time class="text-muted">12 de Setembro de 2025</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+                                
+                                    
+                                    <div class="podcast-card mb-4 podcast-card-left" style="">
+    <a href="https://podcast.unesp.br/18344/professor-da-unesp-comenta-painel-sobre-agricultura-irrigada-apresentado-no-iii-simposio-sobre-sistemas-intensivos-de-producao">
+        <div class="row align-items-center">
+            <div class="col-podcast-card-left">
+                <img src="https://podcast.unesp.br/admin/dbo/upload/images/medium-1669041855-0831.JPG" alt="Imagem de capa do Podcast" class="d-block rounded-top-left rounded-bottom-right aspect-ratio-16x9 object-fit-cover podcast-card-cover">
+            </div>
+            <div class="col-podcast-card-right">
+                <div class="info">
+                    <div class="canal"><strong>Pod Irrigar</strong></div>
+                    <h2 class="titulo">Professor da Unesp comenta painel sobre agricultura irrigada apresentado no III Simpósio sobre Sistemas Intensivos de Produção</h2>
+                    <div class="duracao">
+                        <time class="text-muted">11 de Setembro de 2025</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+                                
+                                    
+                                    <div class="podcast-card mb-4 podcast-card-left" style="">
+    <a href="https://podcast.unesp.br/18341/aluna-de-programa-de-pos-graduacao-da-unesp-em-rio-preto-apresenta-estudo-sobre-criptografia-e-representacao-em-gentleman-jack">
+        <div class="row align-items-center">
+            <div class="col-podcast-card-left">
+                <img src="https://podcast.unesp.br/admin/dbo/upload/images/medium-1669041963-0050.JPG" alt="Imagem de capa do Podcast" class="d-block rounded-top-left rounded-bottom-right aspect-ratio-16x9 object-fit-cover podcast-card-cover">
+            </div>
+            <div class="col-podcast-card-right">
+                <div class="info">
+                    <div class="canal"><strong>Pod Ibilce</strong></div>
+                    <h2 class="titulo">Aluna de programa de pós-graduação da Unesp em Rio Preto apresenta estudo sobre criptografia e representação em Gentleman Jack</h2>
+                    <div class="duracao">
+                        <time class="text-muted">10 de Setembro de 2025</time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+                                
+                            </div>
+
+                            <div class="text-center">
+                                <button data-url="https://podcast.unesp.br/ajax-carregar-mais.php?quantidade=10&layout=left&class=mb-4&DBO_CSRF_token=7f60f41c471899b70956b0327095ea71&dbo_secure_hash=26d42720e0b53aea7882487afe83dc7f" type="button" id="carregar-mais" class="button btn btn-primary" onclick="carregarMais(this)">Carregar mais</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+            </div>
+            <div class="col-12 col-lg-4">
+                <section id="sobre" class="bg-dark-blue text-white p-4 p-xl-5 bleed-right mb-5 rounded-top-left rounded-bottom-left">
+                    <h1 class="text-white pretty">Sobre o Podcast</h1>
+                    <p>Lançado em outubro de 2011 pela Assessoria de Comunicação e Imprensa (ACI) da Unesp, o Podcast Unesp tem como objetivo divulgar o universo acadêmico à sociedade.</p>
+                    <p>O serviço disponibiliza podcasts (arquivos de áudio) com pesquisas e a opinião de especialistas da Universidade sobre os mais diversos assuntos em todas as grandes áreas do conhecimento.</p>
+                    <p>Todo o conteúdo do Podcast Unesp é gratuito e pode ser reproduzido, desde que com os devidos créditos.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<script>
+    function carregarMais(el) {
+
+        const fd = new FormData;
+
+        fd.append('pag', parseInt(document.querySelector('body').dataset.paginaAtual) + 1);
+
+        peixeAjax({
+            url: el.dataset.url,
+            data: fd,
+        });
+    }
+</script>
+
+
+
+<footer id="main-footer-site" class="bg-dark py-5 mt-5">
+    <div class="container text-center text-lg-left">
+        <div class="row text-white">
+            <div class="col-12 col-lg-auto pr-lg-5 mb-5 mb-lg-0">
+                <img src="https://podcast.unesp.br/images/logo-unesp-footer.png" alt="Logotipo do Podcast Unesp" class="mb-4 d-block mx-auto" style="width: 190px;">
+                <div class="d-flex justify-content-center">
+                    <a href="https://podcast.unesp.br/feed" target="_blank"><i class="fa fa-rss round-button mx-2"></i></a>
+                                                                                                        <a href="https://deezer.com/show/5724417" target="_blank" title="Acompanhe o Podcast Unesp no Deezer"><i class="fab fa-deezer round-button mx-2"></i></a>
+                                                                <a href="https://open.spotify.com/show/7jXjTHU0ygHqmIOyWEVVwF" target="_blank" title="Acompanhe o Podcast Unesp no Spotify"><i class="fab fa-spotify round-button mx-2"></i></a>
+                                                        </div>
+            </div>
+            <div class="col-12 col-lg-auto px-lg-5 mb-5 mb-lg-0">
+                <h4 class="pretty text-white">Acessos</h4>
+                <ul class="list-unstyled">
+                    <li><a href="https://podcast.unesp.br">Ouça</a></li>
+                    <li><a href="https://podcast.unesp.br/feed">RSS / Embed</a></li>
+                    <li><a href="https://podcast.unesp.br/sobre">Sobre</a></li>
+                    <li><a href="https://podcast.unesp.br/contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-auto px-lg-5">
+                <h4 class="pretty text-white">Canais</h4>
+                <ul class="list-unstyled card-columns">
+                                                                <li><a href="https://podcast.unesp.br/canal/1/radio-release">Rádio Release</a></li>
+                                            <li><a href="https://podcast.unesp.br/canal/4/vunesp-informa">Vunesp Informa</a></li>
+                                            <li><a href="https://podcast.unesp.br/canal/5/pod-viver-bem">Pod Viver Bem</a></li>
+                                            <li><a href="https://podcast.unesp.br/canal/12/pod-tempo">Pod Tempo</a></li>
+                                            <li><a href="https://podcast.unesp.br/canal/13/pod-irrigar">Pod Irrigar</a></li>
+                                            <li><a href="https://podcast.unesp.br/canal/19/pod-territorial">Pod Territorial</a></li>
+                                            <li><a href="https://podcast.unesp.br/canal/20/pod-acqua">Pod Acqua</a></li>
+                                            <li><a href="https://podcast.unesp.br/canal/21/pod-mundo-e-politica">Pod Mundo e Política</a></li>
+                                            <li><a href="https://podcast.unesp.br/canal/25/pod-esporte">Pod Esporte</a></li>
+                                            <li><a href="https://podcast.unesp.br/canal/26/pod-mpb">Pod MPB</a></li>
+                                            <li><a href="https://podcast.unesp.br/canal/27/pod-ibilce">Pod Ibilce</a></li>
+                                            <li><a href="https://podcast.unesp.br/canal/28/minuto-ciencia">Minuto Ciência</a></li>
+                                            <li><a href="https://podcast.unesp.br/canal/35/pod-inovar">Pod Inovar</a></li>
+                                            <li><a href="https://podcast.unesp.br/canal/38/prato-do-dia">Prato do Dia</a></li>
+                                            <li><a href="https://podcast.unesp.br/canal/39/universo-profissional">Universo Profissional</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+<!-- HandTalk Unesp -->
+<script src="https://plugin.handtalk.me/web/latest/handtalk.min.js"></script>
+<script>
+    var ht = new HT({
+        token: "1ba0e2ad4e4a77523eed6bf728acc085",
+        pageSpeech: true,
+        avatar: "MAYA"
+    });
+</script>
+
+</body>
+
+</html>

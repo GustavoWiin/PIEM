@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/imagens/favicon.ico" />
+    <link rel="icon" type="image/png" href="/imagens/favicon.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <title>Fundação Editora Unesp</title>
+
+    <meta name="description">
+
+        <meta property="og:image" content="http://editoraunesp.com.br/imagens/logo2.png" />
+
+        <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://editoraunesp.com.br/" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" />
+    <meta property="og:site_name" content="Editora Unesp" />
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//use.typekit.net/bup4cgg.js"></script>
+    <script>try { Typekit.load({ async: false }); } catch (e) { }</script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<link href="/bundles/csshome?v=lQ6TbfOaMcAqWQTIIGOqq8lfQPMDitziJlrWXfhH4AE1" rel="stylesheet"/>
+    
+    <script src="/bundles/scripts?v=ipR6XVfyPRfatDOHyL6-jNVPzk3gShYRoH9Vw74ptJQ1"></script>
+
+<script src="/bundles/scriptshome?v=yJgI-9AW9wioeP6wBDDgSCf3cCsiaE_xCSaYdAdixgI1"></script>
+                
+    
+</head>
+<body>
+    <header>
+        <nav class="headermobile">
+            <ul>
+                <li>
+                    <a href="/">
+                        Inicial
+                    </a>
+                </li>
+                <li>
+                    <a href="/catalogo">
+                        Catálogo
+                    </a>
+                </li>
+                <li>
+                    <a href="/catalogo/ebooks">
+                        E-books
+                    </a>
+                </li>
+                <li>
+                    <a href="/blog">
+                        Blog
+                    </a>
+                </li>
+                    <li>
+                        <a href="/entrar">
+                            Entrar
+                        </a>
+                    </li>
+                <li>
+                    <a href="/livrarias">
+                        Livrarias
+                    </a>
+                </li>
+                <li>
+                    <a href="/unil">
+                        Universidade do Livro
+                    </a>
+                </li>
+                <li>
+                    <a href="/quemsomos">
+                        Quem Somos
+                    </a>
+                </li>
+                <li>
+                    <a href="/perguntasrespostas">
+                        FAQ
+                    </a>
+                </li>
+                <li>
+                    <a href="/contato">
+                        Contato / SIC
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <form action="/catalogo">
+            <div class="criterio" id="criterio">
+                <input type="text" id="criterioinput" name="criterio" placeholder="Procure por título, autor, resenha ou ISBN" />
+            </div>
+        </form>
+
+        <nav class="header1">
+            <div class="margem">
+                <ul>
+                    <li>
+                        <a href="/livrarias">
+                            Livrarias
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://universidadedolivro.com.br/" target="_blank">
+                            Universidade do Livro
+                        </a>
+                    </li>
+                    <li class="spacer"></li>
+                        <li>
+                            <a href="/entrar">
+                                Entrar
+                            </a>
+                        </li>
+                </ul>
+            </div>
+        </nav>
+        <nav class="header2">
+            <div class="margem">
+                <a href="/" class="logo">
+                    <img src="/imagens/logo.png" alt="Editora Unesp" />
+                </a>
+                <div id="menumobile" class="menumobile">
+                    <img src="/imagens/menu.png" alt="Abrir Menu" id="menumobileimg" />
+                </div>
+                <div id="procurarmobile" class="procurarmobile">
+                    <img src="/imagens/procurar.png" alt="Procurar" id="procurarmobileimg" />
+                </div>
+                <ul>
+                    <li>
+                        <div class="procurar" id="procurar">
+                            <img src="/imagens/procurar.png" alt="Procurar" id="procurarimg" />
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/catalogo">
+                            Catálogo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/ebooks">
+                            E-books
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog">
+                            Blog
+                        </a>
+                    <li>
+                        <a href="/quemsomos">
+                            Quem Somos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/perguntasrespostas">
+                            FAQ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contato">
+                            Contato / SIC
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    
+
+    
+
+
+<div class="bannercontainer">
+    <div class="banner">
+        <ul>
+                    <li style="background-image: url('/catalogo/9786557112939,contra-o-antissemitismo-e-suas-instrumentalizacoes/banner');">
+                        <a href="/catalogo/9786557112939,contra-o-antissemitismo-e-suas-instrumentalizacoes">
+                            <h1>Contra o antissemitismo e suas instrumentaliza&#231;&#245;es</h1>
+                            <h2>Intelectuais como Judith Butler e Naomi Klein denunciam uso pol&#237;tico do conceito para silenciar cr&#237;ticas ao sionismo, &#224; coloniza&#231;&#227;o e &#224; opress&#227;o dos palestinos</h2>
+                        </a>
+                    </li>
+                    <li style="background-image: url('/catalogo/9786557112779,a-paz-perdida/banner');">
+                        <a href="/catalogo/9786557112779,a-paz-perdida">
+                            <h1>A paz perdida</h1>
+                            <h2>Richard Sakwa examina os erros diplom&#225;ticos que levaram ao retorno da guerra na Europa e ao enfraquecimento da ordem internacional</h2>
+                        </a>
+                    </li>
+                    <li style="background-image: url('/catalogo/9786557112915,analise-da-configuracao-textual/banner');">
+                        <a href="/catalogo/9786557112915,analise-da-configuracao-textual">
+                            <h1>An&#225;lise da configura&#231;&#227;o textual</h1>
+                            <h2>Maria Mortatti mostra como esta abordagem revela sentidos ocultos e amplia a interpreta&#231;&#227;o de textos</h2>
+                        </a>
+                    </li>
+                    <li style="background-image: url('/catalogo/9786557112854,a-razao-das-normas/banner');">
+                        <a href="/catalogo/9786557112854,a-razao-das-normas">
+                            <h1>A raz&#227;o das normas</h1>
+                            <h2>Jean-Fran&#231;ois Kerv&#233;gan discute a racionalidade normativa em Kant</h2>
+                        </a>
+                    </li>
+                    <li style="background-image: url('/catalogo/9786557112786,viver-e-morrer-em-sao-paulo/banner');">
+                        <a href="/catalogo/9786557112786,viver-e-morrer-em-sao-paulo">
+                            <h1>Viver e morrer em S&#227;o Paulo</h1>
+                            <h2>Jeffrey Lesser revela desigualdades em sa&#250;de na hist&#243;ria urbana de S&#227;o Paulo</h2>
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+
+<section class="contentcinzaclaro centro">
+    <div class="margem">
+        <h2>Lançamentos</h2>
+
+        <ul id="livros">
+                <li>
+                    <a href="/catalogo/9786557113035,adivinhar-o-mundo" id="livro1">
+                        <div class="foto">
+                            <img src="/catalogo/9786557113035,adivinhar-o-mundo/capa" />
+                        </div>
+                        <div class="titulo">
+                            Adivinhar o mundo
+                        </div>
+                        <div class="autor">
+                            Giulio Busi
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/catalogo/9786557112861,um-olhar-sobre-as-revolucoes-e-a-reforma-da-medicina" id="livro2">
+                        <div class="foto">
+                            <img src="/catalogo/9786557112861,um-olhar-sobre-as-revolucoes-e-a-reforma-da-medicina/capa" />
+                        </div>
+                        <div class="titulo">
+                            Um olhar sobre as revolu&#231;&#245;es e a reforma da medicina
+                        </div>
+                        <div class="autor">
+                            Pierre-Jean-Georges Cabanis ,Naomar de Almeida Filho
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/catalogo/9786557113042,o-mercado-da-morte" id="livro3">
+                        <div class="foto">
+                            <img src="/catalogo/9786557113042,o-mercado-da-morte/capa" />
+                        </div>
+                        <div class="titulo">
+                            O mercado da morte
+                        </div>
+                        <div class="autor">
+                            W&#225;lter Fanganiello Maierovitch
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/catalogo/9786557112991,tragedia" id="livro4">
+                        <div class="foto">
+                            <img src="/catalogo/9786557112991,tragedia/capa" />
+                        </div>
+                        <div class="titulo">
+                            Trag&#233;dia
+                        </div>
+                        <div class="autor">
+                            Terry Eagleton
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/catalogo/9786557112816,cultura" id="livro5">
+                        <div class="foto">
+                            <img src="/catalogo/9786557112816,cultura/capa" />
+                        </div>
+                        <div class="titulo">
+                            Cultura
+                        </div>
+                        <div class="autor">
+                            Terry Eagleton
+                        </div>
+                    </a>
+                </li>
+        </ul>
+    </div>
+</section>
+
+<a href="/catalogo" class="actionfull">
+    Nosso Catálogo
+</a>
+
+<section class="contentbranco centro">
+    <div class="margem">
+        <h2>Blog</h2>
+        <p>Acompanhe as novidades, notícias e lançamentos da Editora Unesp.</p>
+
+        <ul class="artigos colunas">
+                <li class="coluna2">
+                    <a href="/blog/terry-eagleton-investiga-os-sentidos-da-cultura-e-seus-embates-ao-longo-da-historia">
+                        <div class="foto">
+                            <img src="/blog/icone/terry-eagleton-investiga-os-sentidos-da-cultura-e-seus-embates-ao-longo-da-historia" alt="Terry Eagleton investiga os sentidos da cultura e seus embates ao longo da hist&#243;ria" />
+                        </div>
+                        <div class="titulo">
+                            Terry Eagleton investiga os sentidos da cultura e seus embates ao longo da hist&#243;ria
+                        </div>
+                    </a>
+                </li>
+                <li class="coluna2">
+                    <a href="/blog/pretessencias-traz-a-paz-perdida">
+                        <div class="foto">
+                            <img src="/blog/icone/pretessencias-traz-a-paz-perdida" alt="&#39;Pretess&#234;ncias&#39; traz &#39;A paz perdida&#39;" />
+                        </div>
+                        <div class="titulo">
+                            &#39;Pretess&#234;ncias&#39; traz &#39;A paz perdida&#39;
+                        </div>
+                    </a>
+                </li>
+                <li class="coluna2">
+                    <a href="/blog/james-green-faz-diagnostico-de-sancoes-contra-o-brasil-">
+                        <div class="foto">
+                            <img src="/blog/icone/james-green-faz-diagnostico-de-sancoes-contra-o-brasil-" alt="James Green faz diagn&#243;stico de san&#231;&#245;es contra o Brasil " />
+                        </div>
+                        <div class="titulo">
+                            James Green faz diagn&#243;stico de san&#231;&#245;es contra o Brasil 
+                        </div>
+                    </a>
+                </li>
+                <li class="coluna2">
+                    <a href="/blog/livraria-unesp-movel-estaciona-no-campus-da-unesp-em-franca-de-22-a-26-de-setembro">
+                        <div class="foto">
+                            <img src="/blog/icone/livraria-unesp-movel-estaciona-no-campus-da-unesp-em-franca-de-22-a-26-de-setembro" alt="Livraria Unesp M&#243;vel estaciona no c&#226;mpus da Unesp em Franca de 22 a 26 de setembro" />
+                        </div>
+                        <div class="titulo">
+                            Livraria Unesp M&#243;vel estaciona no c&#226;mpus da Unesp em Franca de 22 a 26 de setembro
+                        </div>
+                    </a>
+                </li>
+        </ul>
+
+        <div class="centro actionbar">
+            <a href="/blog" class="action actioncinza actionsetaescura">Todos os Posts</a>
+        </div>
+    </div>
+</section>
+
+<section class="contentazul centro">
+    <div class="margem">
+        <h2>Assuntos</h2>
+
+        <div class="colunas catalogo">
+
+
+            <ul class="coluna3">
+                    <li>
+                        <a href="/catalogo/assuntos/administracao">Administra&#231;&#227;o</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/agronomia">Agronomia</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/antropologia">Antropologia</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/arquitetura-e-urbanismo">Arquitetura e Urbanismo</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/artes">Artes</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/biografia-diario-e-correspondencia">Biografia, Di&#225;rio e Correspond&#234;ncia</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/ciencias-biologicas">Ci&#234;ncias Biol&#243;gicas</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/ciencias-exatas">Ci&#234;ncias Exatas</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/comunicacao">Comunica&#231;&#227;o</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/dicionarios">Dicion&#225;rios</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/direito">Direito</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/economia">Economia</a>
+                    </li>
+            </ul>
+
+            <ul class="coluna3">
+                    <li>
+                        <a href="/catalogo/assuntos/educacao">Educa&#231;&#227;o</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/engenharias-e-tecnologia">Engenharias e Tecnologia</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/filosofia">Filosofia</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/fisica">F&#237;sica</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/gastronomia">Gastronomia</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/geografia">Geografia</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/gramatica">Gram&#225;tica</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/historia-cultural">Hist&#243;ria Cultural</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/historia-do-brasil">Hist&#243;ria do Brasil</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/historia-geral">Hist&#243;ria Geral</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/jovem-leitor">Jovem Leitor</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/letras-e-linguistica">Letras e Lingu&#237;stica</a>
+                    </li>
+            </ul>
+
+            <ul class="coluna3">
+                    <li>
+                        <a href="/catalogo/assuntos/literatura">Literatura</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/livros-sobre-livros">Livros sobre Livros</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/medicina">Medicina</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/meio-ambiente">Meio Ambiente</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/musica">M&#250;sica</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/politica">Pol&#237;tica</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/psicologia-e-psicanalise">Psicologia e Psican&#225;lise</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/quimica">Qu&#237;mica</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/relacoes-internacionais">Rela&#231;&#245;es Internacionais</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/religiao">Religi&#227;o</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/saude">Sa&#250;de</a>
+                    </li>
+                    <li>
+                        <a href="/catalogo/assuntos/sociologia">Sociologia</a>
+                    </li>
+            </ul>
+
+            <div class="clear"></div>
+        </div>
+
+        <div class="centro actionbar">
+            <a href="/catalogo" class="action actionazulescuro actionsetaclara">Catálogo</a>
+        </div>
+    </div>
+</section>
+
+<section class="contentbranco1 centro content-home">
+    <div id="table-container" class="margem">
+        <table class="table-imagens-alinhadas">
+            <tr>
+                <td>
+                    <a href="http://www.culturaacademica.com.br/" target="_blank">
+                        <img src="/imagens/culturaacademica2.png" alt="Cultura Acadêmica" />
+                    </a>
+                </td>
+                <td>
+                    <a href="https://www.livrariaunesp.com.br/" target="_blank">
+                        <img src="/imagens/livrariaunesp.png" alt="Livraria Unesp" />
+                    </a>
+                </td>
+                <td>
+                    <a href="https://www.universidadedolivro.com.br/" target="_blank">
+                        <img src="/imagens/Universidade_do_Livro.jpg" alt="Universidade do Livro" width="180" height=100% />
+                    </a>
+                </td>
+                <td>
+                    <a href="https://www.livrariaunesp.com.br/loja-oficial-unesp" target="_blank">
+                        <img src="/imagens/lojaunesp-cinza_03.png" alt="Livraria Unesp" width="110" height="60" />
+                    </a>
+                </td>
+                <td>
+                    <a href="https://www.institutoconfucio.com.br/" target="_blank">
+                        <img src="/imagens/logo-Instituto_Confucio_cinza.png" alt="Instituto Confucio" width="130" />
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section class="contentcinzaclaro centro">
+    <div class="margem">
+        <h2>
+            Voc&#234; e a Editora
+        </h2>
+        <p>
+            Encontre o canal certo para se relacionar com a Editora
+        </p>
+
+        <ul class="canais colunas">
+            <li class="coluna4">
+                <a href="/livreiros">
+                    <div class="foto">
+                        <img src="/imagens/livreiros.png" alt="Área do Distribuidor e do Livreiro" />
+                    </div>
+                    <div class="titulo">
+                        Área do Distribuidor e do Livreiro
+                    </div>
+                </a>
+            </li>
+            <li class="coluna4">
+                <a href="/comopublicar">
+                    <div class="foto">
+                        <img src="/imagens/comopublicar.png" alt="Como Publicar" />
+                    </div>
+                    <div class="titulo">
+                        Como Publicar
+                    </div>
+                </a>
+            </li>
+            <li class="coluna4">
+                <a href="/programadepublicacao">
+                    <div class="foto">
+                        <img src="/imagens/programasDePublicaces.png" alt="Programa de Publicações " />
+                    </div>
+                    <div class="titulo">
+                        Programa de Publicações
+                    </div>
+                </a>
+            </li>
+            <li class="coluna4">
+                <a href="/areaautor">
+                    <div class="foto">
+                        <img src="/imagens/autores.png" alt="Área do Autor" />
+                    </div>
+                    <div class="titulo">
+                        Área do Autor
+                    </div>
+                </a>
+            </li>
+            <li class="coluna4">
+                <a href="/trabalheconosco">
+                    <div class="foto">
+                        <img src="/imagens/trabalhe.png" alt="Trabalhe Conosco" />
+                    </div>
+                    <div class="titulo">
+                        Trabalhe Conosco
+                    </div>
+                </a>
+            </li>
+            <li class="coluna4">
+                <a href="/processoseletivo">
+                    <div class="foto">
+                        <img src="/imagens/processoSeletivo.png" alt="Processos Seletivos" />
+                    </div>
+                    <div class="titulo">
+                        Processos Seletivos
+                    </div>
+                </a>
+            </li>
+            <li class="coluna4">
+                <a href="/direitosautorais">
+                    <div class="foto">
+                        <img src="/imagens/direitosautorais.png" alt="Direitos Autorais Disponíveis" />
+                    </div>
+                    <div class="titulo">
+                        Direitos Autorais Disponíveis
+                    </div>
+                </a>
+            </li>
+            <li class="coluna4">
+                <a href="/transparencia">
+                    <div class="foto">
+                        <img src="/imagens/transparencia.png" alt="Transparência" />
+                    </div>
+                    <div class="titulo">
+                        Transparência
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+    <footer>
+        <div class="footer1">
+            <div class="margem">
+                <div class="news colunatripla">
+                    <div class="mail">
+                        <img src="/imagens/newsletter.png" alt="Newsletter" />
+                    </div>
+                    <div class="texto">
+                        <div class="titulo">Newsletter</div>
+                        <div class="descricao">Receba as novidades da Editora Unesp</div>
+                    </div>
+                </div>
+                <div class="assinarnews colunatripla">
+                    <form action="/assinarnewsletter" method="get">
+                        <input type="email" name="endereco" required />
+                        <button type="submit" class="assinar" id="assinar">Assinar</button>
+                    </form>
+                </div>
+                <div class="social colunatripla">
+                    <ul>
+                        <li>
+                            Siga a Editora Unesp
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/editoraunesp" target="_blank">
+                                <img src="/imagens/facebook.png" alt="Facebook" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/unespeditora/" target="_blank">
+                                <img src="/imagens/Instagram.png" alt="Instagram" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/user/editoraunespvideos" target="_blank">
+                                <img src="/imagens/YouTube_y.png" alt="YouTube" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/editoraunesp" target="_blank">
+                                <img src="/imagens/twitter_x.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.tiktok.com/editoraunesp" target="_blank">
+                                <img src="/imagens/TikTok.png" alt="TikTok" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="footer2">
+            <div class="margem">
+                <div class="logo">
+                    <img src="/imagens/logo.png" alt="Editora Unesp" />
+                </div>
+                <nav>
+                    <ul>
+                        <li>
+                            A Editora
+                        </li>
+                        <li>
+                            <a href="/quemsomos">
+                                Quem Somos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/livrarias">
+                                Nossas Livrarias
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/catalogo/premiados">
+                                Prêmios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/blog">
+                                Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/blog/todosartigos">
+                                Todos os Posts
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/processoseletivo">
+                                Processo Seletivo
+                            </a>
+                        </li>
+
+                        
+
+                        <li>
+                            <a href="/programadepublicacao">
+                                Programas de Publicações
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contato">
+                                Contato
+                            </a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            Livros & Cursos
+                        </li>
+                        <li>
+                            <a href="/catalogo">
+                                Catálogo
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/catalogo/ebooks">
+                                E-books
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.livrariaunesp.com.br/livrariaunesp/?ref=http://www.editoraunesp.com.br/">
+                                Livraria Virtual
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/unil">
+                                Universidade do Livro
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.culturaacademica.com.br/" target="_blank">
+                                Cultura Acadêmica
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/catalogo/todos">
+                                Todos os livros
+                            </a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            Você e a Editora
+                        </li>
+                        <li>
+                            <a href="/areaautor">
+                                Área do Autor
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/comopublicar">
+                                Como Publicar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/livreiros">
+                                Área do Distribuidor e do Livreiro
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/trabalheconosco">
+                                Trabalhe Conosco
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/direitosautorais">
+                                Direitos Autorais Disponíveis
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/transparencia">
+                                Transparência
+                            </a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            Unesp
+                        </li>
+                        <li>
+                            <a href="http://www.unesp.br/" target="_blank">
+                                Portal da Unesp
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.fundunesp.unesp.br/" target="_blank">
+                                Fundunesp
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.vunesp.com.br/" target="_blank">
+                                Fundação Vunesp
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.institutoconfucio.com.br/" target="_blank">
+                                Instituto Confúcio na Unesp
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://jornal.unesp.br/" target="_blank">
+                                Jornal da Unesp
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="footer3">
+            <a href="http://alfapeople.com.br" target="_blank">
+                Marketing Digital por AlfaPeople
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-22816556-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script>
+        var url_atual = window.location.pathname;
+        if (sessionStorage.contador != '1') {
+            sessionStorage.setItem('contador', '1');
+            Swal.fire({
+                position: 'bottom',
+                width: 1000,
+                confirmButtonColor: '#3085d6',
+                title: 'Termos de Uso',
+                html: 'Utilizamos cookies e tecnologias semelhantes, de acordo com nossos ' +
+                    '<a href="/TermosDeUso">Termos de Uso</a>' +
+                    '. Ao continuar navegando, você concorda com essas condições.',
+                confirmButtonText: 'Aceitar e Continuar'
+            }).then((result) => {
+                if (localStorage.contador1 != '1') {
+                    localStorage.setItem('contador1', '1');
+                    Swal.fire({
+                        title: 'Cadastre-se',
+                        html: `
+                            <h6>Receba notícias e informações sobre eventos, lançamentos, promoções e outros conteúdos em primeira mão.</h6>
+                            <input type="text" id="nome" class="swal2-input" placeholder="Digite seu Nome" style="width: 80%; text-align: center">
+                            <input type="text" id="endereco" class="swal2-input" placeholder="Digite seu Email" style="width: 80%; text-align: center">
+                            <h6>Ao preencher o formulário, você está ciente que a Fundação Editora da Unesp poderá enviar, de tempos em tempos, informações de acordo com os seus interesses.</h6>`,
+                        confirmButtonText: 'Assinar',
+                        focusConfirm: false,
+                        preConfirm: () => {
+                            const nome = Swal.getPopup().querySelector('#nome').value
+                            const endereco = Swal.getPopup().querySelector('#endereco').value
+                            const area = "2"
+                            var resultado = { "endereco": endereco, "area": area, "nome": nome }
+
+                            $.ajax({
+                                url: '/assinarnewsletter',
+                                datatype: 'json',
+                                contentType: "application/json; charset=utf-8",
+                                type: "POST",
+                                data: JSON.stringify(resultado),
+                                success: function (data) {
+                                    Swal.fire({
+                                        title: 'Assinatura Enviada',
+                                        text: 'Assinatura Envida com Sucesso'
+                                    })
+                                },
+                                error: function (error) {
+                                    loading(0, "");
+                                }
+                            });
+                        }
+                    })
+                }
+            })
+        }
+
+    </script>
+
+    <noscript>
+        <img height="1" width="1"
+             src="https://www.facebook.com/tr?id=943712565758872&ev=PageView&noscript=1" />
+    </noscript>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

